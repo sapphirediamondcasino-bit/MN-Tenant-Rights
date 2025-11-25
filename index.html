@@ -532,12 +532,22 @@ header .company {
 .program-section {
     margin: 2rem 0;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: rgba(10, 25, 41, 0.85);
     border-radius: 8px;
+    border-left: 4px solid #40c4ff;
+    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.2);
+    backdrop-filter: blur(10px);
+    color: #e0f2f1;
 }
 
 .program-section h4 {
-    color: #2c5282;
+    color: #00ff9d;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.program-section p {
+    color: #e0f2f1;
     margin-bottom: 0.5rem;
 }
 
@@ -545,27 +555,30 @@ header .company {
     display: inline-block;
     padding: 12px 24px;
     margin: 1rem 0;
-    background: #2c5282;
-    color: white;
-    border: none;
+    background: linear-gradient(135deg, #1a237e 0%, #004d40 100%);
+    color: #00ff9d;
+    border: 2px solid #00ff9d;
     border-radius: 6px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.2);
 }
 
 .program-btn:hover {
-    background: #1a365d;
+    background: linear-gradient(135deg, #004d40 0%, #1a237e 100%);
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.8);
 }
 
 .program-btn:active {
     transform: translateY(0);
 }
 
-/* Overlay styles */
+/* Overlay styles - Fixed positioning */
 .overlay {
     display: none;
     position: fixed;
@@ -573,8 +586,8 @@ header .company {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
     justify-content: center;
     align-items: center;
 }
@@ -584,34 +597,47 @@ header .company {
 }
 
 .overlay-content {
-    background: white;
+    background: linear-gradient(135deg, #0a1929 0%, #1a237e 100%);
     padding: 2rem;
     border-radius: 12px;
     max-width: 500px;
     margin: 20px;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 40px rgba(0, 255, 157, 0.4);
+    border: 2px solid #00ff9d;
+    color: #e0f2f1;
 }
 
 .overlay-content h3 {
-    color: #c53030;
+    color: #ff5252;
     margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(255, 82, 82, 0.6);
 }
 
 .overlay-content p {
-    margin-bottom: 1.5rem;
+    color: #e0f2f1;
+    margin-bottom: 1rem;
     line-height: 1.6;
 }
 
 .overlay-close-btn {
-    background: #2c5282;
-    color: white;
-    border: none;
+    background: linear-gradient(135deg, #1a237e 0%, #004d40 100%);
+    color: #00ff9d;
+    border: 2px solid #00ff9d;
     padding: 10px 30px;
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
     font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.2);
+}
+
+.overlay-close-btn:hover {
+    background: linear-gradient(135deg, #004d40 0%, #1a237e 100%);
+    box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.8);
+    transform: translateY(-2px);
 }
 
 .overlay-close-btn:hover {
@@ -4919,7 +4945,7 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     <h4>1. Homelessness Prevention Program</h4>
     <p><strong>Purpose:</strong> Prevent tenants from losing housing due to landlord misconduct, unsafe conditions, retaliation, or sudden hardship.</p>
     <p><strong>How it works:</strong> Tenants submit a request via our online form. Staff reviews lease, rent history, notices, and safety concerns, then builds a stabilization plan including negotiation coaching, documentation preparation, and letters.</p>
-    <button class="program-btn" onclick="showOverlay()">Get Homelessness Prevention Help</button>
+    <button class="program-btn" onclick="showOverlay('Homelessness Prevention Help')">Get Homelessness Prevention Help</button>
 </div>
 
 <!-- Program 2: Emergency Food Security -->
@@ -4927,7 +4953,7 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     <h4>2. Emergency Food Security Program</h4>
     <p><strong>Purpose:</strong> Provide food access to tenants who cannot access SNAP, were denied, or are in waiting periods.</p>
     <p><strong>How it works:</strong> Tenant submits a food request form. Staff reviews household size, dietary needs, and urgency. Program provides emergency meals, food boxes (when funded), and partner pantry referrals. This program is donation-funded; no government application required.</p>
-    <button class="program-btn" onclick="showOverlay()">Request Emergency Food</button>
+    <button class="program-btn" onclick="showOverlay('Emergency Food Request')">Request Emergency Food</button>
 </div>
 
 <!-- Program 3: Landlord Misconduct Reporting -->
@@ -4936,7 +4962,7 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     <p><strong>Purpose:</strong> Allow tenants to securely report illegal or abusive landlord behavior and track repeat offenders.</p>
     <p><strong>Reportable issues:</strong> Retaliation, harassment, illegal entry, unsafe conditions, lease violations, privacy violations (cameras, monitoring), discrimination.</p>
     <p><strong>How it works:</strong> Tenant submits a misconduct report. Staff reviews severity, verifies details, and organizes documentation. Staff provides guidance for letters, filing complaints, and next steps. Internal tracking identifies repeat offenders.</p>
-    <button class="program-btn" onclick="showOverlay()">Report Landlord Misconduct</button>
+    <button class="program-btn" onclick="showOverlay('Landlord Misconduct Report')">Report Landlord Misconduct</button>
 </div>
 
 <!-- Program 4: Disability Tenant Protection -->
@@ -4945,7 +4971,7 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     <p><strong>Purpose:</strong> Protect tenants with disabilities from landlord neglect or violations.</p>
     <p><strong>Coverage includes:</strong> Accommodation requests, support animals/ESA issues, mobility access, ADA protections, medical-related housing needs.</p>
     <p><strong>How it works:</strong> Tenant submits request. Staff reviews functional needs and drafts accommodation letters. Staff helps document landlord violations to ensure legal compliance.</p>
-    <button class="program-btn" onclick="showOverlay()">Request Disability Protection</button>
+    <button class="program-btn" onclick="showOverlay('Disability Protection Request')">Request Disability Protection</button>
 </div>
 
 <!-- Program 5: Low-Income Crisis Response -->
@@ -4953,7 +4979,7 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     <h4>5. Low-Income Crisis Response Program</h4>
     <p><strong>Purpose:</strong> Provide rapid assistance to tenants facing sudden hardship, eviction risk, or unsafe conditions.</p>
     <p><strong>How it works:</strong> Tenant submits crisis request. Staff reviews priority status and urgency. Assistance includes same-day action plan, letters/documentation, and referrals to non-government resources.</p>
-    <button class="program-btn" onclick="showOverlay()">Get Crisis Help Now</button>
+    <button class="program-btn" onclick="showOverlay('Crisis Help Request')">Get Crisis Help Now</button>
 </div>
 
 <!-- Additional Tenant Protections Section -->
@@ -4969,15 +4995,52 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     <p style="margin-top:1rem"><strong>Tip:</strong> Keep documentation of any landlord violations, communications, or threats — useful once forms are active.</p>
 </div>
 
-<!-- Overlay Modal -->
+<!-- Overlay Modal with Built-in Form -->
 <div id="formOverlay" class="overlay">
     <div class="overlay-content">
-        <h3>⚠️ Form Not Available Yet</h3>
-        <p><strong>Tenant Justice MN is not accepting requests until operations begin.</strong></p>
-        <p>This form will become active in <strong>mid-2026</strong> once we are fully operational and funded.</p>
-        <p>Please return after mid-2026 to access our services.</p>
-        <p style="margin-top:1rem; font-size:14px; color:#666;">For immediate assistance, contact HOME Line at (612) 728-5767 or visit the resources on this website.</p>
-        <button class="overlay-close-btn" onclick="closeOverlay()">Close</button>
+        <h3 id="overlayTitle">⚠️ Form Not Available Yet</h3>
+        
+        <!-- Form (hidden initially, shown when mid-2026) -->
+        <form id="programForm" style="display: none;">
+            <input type="hidden" name="program_type" id="programType" value="">
+            
+            <div style="text-align: left; margin-bottom: 1rem;">
+                <label for="name" style="display: block; margin-bottom: 0.5rem; color: #00ff9d; font-weight: 600;">Full Name *</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; border-radius: 6px; border: 2px solid #40c4ff; background: rgba(10, 25, 41, 0.95); color: #e0f2f1; font-size: 16px;">
+            </div>
+            
+            <div style="text-align: left; margin-bottom: 1rem;">
+                <label for="email" style="display: block; margin-bottom: 0.5rem; color: #00ff9d; font-weight: 600;">Email Address *</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border-radius: 6px; border: 2px solid #40c4ff; background: rgba(10, 25, 41, 0.95); color: #e0f2f1; font-size: 16px;">
+            </div>
+            
+            <div style="text-align: left; margin-bottom: 1rem;">
+                <label for="phone" style="display: block; margin-bottom: 0.5rem; color: #00ff9d; font-weight: 600;">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 12px; border-radius: 6px; border: 2px solid #40c4ff; background: rgba(10, 25, 41, 0.95); color: #e0f2f1; font-size: 16px;">
+            </div>
+            
+            <div style="text-align: left; margin-bottom: 1rem;">
+                <label for="address" style="display: block; margin-bottom: 0.5rem; color: #00ff9d; font-weight: 600;">Rental Address</label>
+                <input type="text" id="address" name="address" style="width: 100%; padding: 12px; border-radius: 6px; border: 2px solid #40c4ff; background: rgba(10, 25, 41, 0.95); color: #e0f2f1; font-size: 16px;">
+            </div>
+            
+            <div style="text-align: left; margin-bottom: 1.5rem;">
+                <label for="message" style="display: block; margin-bottom: 0.5rem; color: #00ff9d; font-weight: 600;">Describe Your Situation *</label>
+                <textarea id="message" name="message" required rows="6" style="width: 100%; padding: 12px; border-radius: 6px; border: 2px solid #40c4ff; background: rgba(10, 25, 41, 0.95); color: #e0f2f1; font-size: 16px; resize: vertical;"></textarea>
+            </div>
+            
+            <button type="submit" class="overlay-close-btn" style="margin-right: 10px;">Submit Request</button>
+            <button type="button" class="overlay-close-btn" onclick="closeOverlay()">Cancel</button>
+        </form>
+        
+        <!-- "Not Available" message (shown initially) -->
+        <div id="notAvailableMessage">
+            <p><strong>Tenant Justice MN is not accepting requests until operations begin.</strong></p>
+            <p>This form will become active in <strong>mid-2026</strong> once we are fully operational and funded.</p>
+            <p>Please return after mid-2026 to access our services.</p>
+            <p style="margin-top:1rem; font-size:14px;">For immediate assistance, contact HOME Line at (612) 728-5767 or visit the resources on this website.</p>
+            <button class="overlay-close-btn" onclick="closeOverlay()">Close</button>
+        </div>
     </div>
 </div>
                 
@@ -5095,22 +5158,15 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
         </div>
     </footer>
     
-   <!-- JAVASCRIPT FOR NAVIGATION -->
+ <!-- JAVASCRIPT FOR NAVIGATION -->
 <script>
     function showPage(pageId) {
-        // Hide all pages
         const pages = document.querySelectorAll('.page');
-        pages.forEach(page => {
-            page.classList.remove('active');
-        });
+        pages.forEach(page => page.classList.remove('active'));
         
-        // Remove active class from all nav buttons
         const navBtns = document.querySelectorAll('.nav-btn');
-        navBtns.forEach(btn => {
-            btn.classList.remove('active');
-        });
+        navBtns.forEach(btn => btn.classList.remove('active'));
         
-        // Show selected page
         const selectedPage = document.getElementById(pageId);
         if (selectedPage) {
             selectedPage.classList.add('active');
@@ -5118,7 +5174,6 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
             console.error('Page not found: ' + pageId);
         }
         
-        // Add active class to clicked nav button
         const clickedButton = Array.from(navBtns).find(btn => 
             btn.getAttribute('onclick').includes(pageId)
         );
@@ -5126,46 +5181,92 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
             clickedButton.classList.add('active');
         }
         
-        // Scroll to top
         window.scrollTo(0, 0);
     }
     
-    // OVERLAY FUNCTIONS - SEPARATE FROM showPage!
-    function showOverlay() {
-        document.getElementById('formOverlay').classList.add('active');
+    // Check if forms should be active (mid-2026)
+    function areFormsActive() {
+        const now = new Date();
+        const activationDate = new Date('2026-06-01');
+        return now >= activationDate;
+    }
+    
+    // OVERLAY FUNCTIONS
+    function showOverlay(programType) {
+        const overlay = document.getElementById('formOverlay');
+        const form = document.getElementById('programForm');
+        const message = document.getElementById('notAvailableMessage');
+        const title = document.getElementById('overlayTitle');
+        const programTypeInput = document.getElementById('programType');
+        
+        if (areFormsActive()) {
+            form.style.display = 'block';
+            message.style.display = 'none';
+            
+            if (programType) {
+                programTypeInput.value = programType;
+                title.textContent = programType;
+            }
+        } else {
+            form.style.display = 'none';
+            message.style.display = 'block';
+            title.textContent = '⚠️ Form Not Available Yet';
+        }
+        
+        overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     
     function closeOverlay() {
-        document.getElementById('formOverlay').classList.remove('active');
+        const overlay = document.getElementById('formOverlay');
+        overlay.classList.remove('active');
         document.body.style.overflow = 'auto';
+        
+        const form = document.getElementById('programForm');
+        if (form) form.reset();
     }
     
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-        // Close overlay when clicking outside
         const overlay = document.getElementById('formOverlay');
         if (overlay) {
             overlay.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeOverlay();
-                }
+                if (e.target === this) closeOverlay();
             });
         }
         
-        // Close overlay with ESC key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeOverlay();
-            }
+            if (e.key === 'Escape') closeOverlay();
         });
         
-        // Make sure home page shows first
+        // Handle form submission
+        const programForm = document.getElementById('programForm');
+        if (programForm) {
+            programForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const programType = document.getElementById('programType').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const address = document.getElementById('address').value;
+                const message = document.getElementById('message').value;
+                
+                const subject = 'Tenant Justice MN - ' + programType;
+                const body = `Program Type: ${programType}%0D%0A%0D%0AName: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ARental Address: ${address}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+                
+                window.location.href = `mailto:info@mntenantrights.org?subject=${encodeURIComponent(subject)}&body=${body}`;
+                
+                closeOverlay();
+            });
+        }
+        
         showPage('home');
     });
 </script>
 </body>
 </html>
+
 
 
 
