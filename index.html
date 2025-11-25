@@ -5095,72 +5095,78 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
         </div>
     </footer>
     
-    <!-- JAVASCRIPT FOR NAVIGATION -->
-    <script>
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Remove active class from all nav buttons
-            const navBtns = document.querySelectorAll('.nav-btn');
-            navBtns.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected page
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-            } else {
-                console.error('Page not found: ' + pageId);
-            }
-            
-            // Add active class to clicked nav button
-            const clickedButton = Array.from(navBtns).find(btn => 
-                btn.getAttribute('onclick').includes(pageId)
-            );
-            if (clickedButton) {
-                clickedButton.classList.add('active');
-            }
-function showOverlay() {
-    document.getElementById('formOverlay').classList.add('active');
-    // Prevent body scroll when overlay is open
-    document.body.style.overflow = 'hidden';
-}
-
-function closeOverlay() {
-    document.getElementById('formOverlay').classList.remove('active');
-    // Restore body scroll
-    document.body.style.overflow = 'auto';
-}
-
-// Close overlay when clicking outside the content
-document.getElementById('formOverlay').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeOverlay();
-    }
-});
-
-// Close overlay with ESC key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeOverlay();
-    }       
-            // Scroll to top
-            window.scrollTo(0, 0);
+   <!-- JAVASCRIPT FOR NAVIGATION -->
+<script>
+    function showPage(pageId) {
+        // Hide all pages
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // Remove active class from all nav buttons
+        const navBtns = document.querySelectorAll('.nav-btn');
+        navBtns.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Show selected page
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) {
+            selectedPage.classList.add('active');
+        } else {
+            console.error('Page not found: ' + pageId);
         }
         
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Make sure home page shows first
-            showPage('home');
+        // Add active class to clicked nav button
+        const clickedButton = Array.from(navBtns).find(btn => 
+            btn.getAttribute('onclick').includes(pageId)
+        );
+        if (clickedButton) {
+            clickedButton.classList.add('active');
+        }
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+    
+    // OVERLAY FUNCTIONS - SEPARATE FROM showPage!
+    function showOverlay() {
+        document.getElementById('formOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeOverlay() {
+        document.getElementById('formOverlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Close overlay when clicking outside
+        const overlay = document.getElementById('formOverlay');
+        if (overlay) {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeOverlay();
+                }
+            });
+        }
+        
+        // Close overlay with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeOverlay();
+            }
         });
-    </script>
+        
+        // Make sure home page shows first
+        showPage('home');
+    });
+</script>
 </body>
 </html>
+
 
 
 
