@@ -30,37 +30,62 @@
         }
 
         /* Aurora Effect */
-        @keyframes aurora {
-            0% { opacity: 0.3; transform: translateY(0px) scaleY(1); }
-            50% { opacity: 0.6; transform: translateY(-20px) scaleY(1.1); }
-            100% { opacity: 0.3; transform: translateY(0px) scaleY(1); }
-        }
+@keyframes aurora {
+    0% { opacity: 0.3; transform: translateY(0px) scaleY(1); }
+    50% { opacity: 0.6; transform: translateY(-20px) scaleY(1.1); }
+    100% { opacity: 0.3; transform: translateY(0px) scaleY(1); }
+}
 
-        header {
-            background: linear-gradient(135deg, #0a1929 0%, #1a237e 50%, #004d40 100%);
-            color: white;
-            padding: 2rem 0;
-            box-shadow: 0 4px 20px rgba(0, 255, 200, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
+@keyframes aurora-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(0, 255, 157, 0.15) 25%, 
-                rgba(64, 196, 255, 0.15) 50%, 
-                rgba(178, 102, 255, 0.15) 75%, 
-                transparent 100%);
-            animation: aurora 8s ease-in-out infinite;
-            pointer-events: none;
-        }
+header {
+    background: linear-gradient(135deg, #0a1929 0%, #1a237e 50%, #004d40 100%);
+    color: white;
+    padding: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 255, 200, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 255, 157, 0.15) 25%, 
+        rgba(64, 196, 255, 0.15) 50%, 
+        rgba(178, 102, 255, 0.15) 75%, 
+        transparent 100%);
+    animation: aurora 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(0, 255, 157, 0.1) 0%,
+        transparent 20%,
+        rgba(64, 196, 255, 0.15) 40%,
+        transparent 60%,
+        rgba(178, 102, 255, 0.1) 80%,
+        transparent 100%);
+    background-size: 200% 200%;
+    animation: aurora-shift 12s ease-in-out infinite reverse;
+    pointer-events: none;
+}
 
         .header-logo {
             display: block;
@@ -5000,7 +5025,6 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
             if (clickedButton) {
                 clickedButton.classList.add('active');
             }
-            <script>
 function showOverlay() {
     document.getElementById('formOverlay').classList.add('active');
     // Prevent body scroll when overlay is open
@@ -5037,6 +5061,7 @@ document.addEventListener('keydown', function(e) {
     </script>
 </body>
 </html>
+
 
 
 
