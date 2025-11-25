@@ -4,76 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minnesota Tenant Rights - Know Your Rights</title>
-    <link rel="icon" type="png" sizes="32x32" href="MNTenantsRights.png">
-    <link rel="icon" type="png" sizes="16x16" href="MNTenantsRights.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/MNTenantsRights.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/MNTenantsRights.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="MNTenantsRights.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="MNTenantsRights.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="MNTenantsRights.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #1f2937;
-            background: #f8fafc;
+            color: #e0f2f1;
+            background: linear-gradient(180deg, #0a1929 0%, #1a237e 50%, #004d40 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
+        /* Aurora Effect */
+        @keyframes aurora {
+            0% { opacity: 0.3; transform: translateY(0px) scaleY(1); }
+            50% { opacity: 0.6; transform: translateY(-20px) scaleY(1.1); }
+            100% { opacity: 0.3; transform: translateY(0px) scaleY(1); }
+        }
+
         header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #0a1929 0%, #1a237e 50%, #004d40 100%);
             color: white;
             padding: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 20px rgba(0, 255, 200, 0.3);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 255, 157, 0.15) 25%, 
+                rgba(64, 196, 255, 0.15) 50%, 
+                rgba(178, 102, 255, 0.15) 75%, 
+                transparent 100%);
+            animation: aurora 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .header-logo {
+            display: block;
+            margin: 0 auto 1rem;
+            max-width: 120px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 157, 0.6));
+            position: relative;
+            z-index: 1;
+        }
+
         header h1 {
             font-size: 2.5em;
             margin-bottom: 0.5rem;
             text-align: center;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.6), 0 0 40px rgba(64, 196, 255, 0.4);
+            position: relative;
+            z-index: 1;
         }
-        
+
         header .tagline {
             text-align: center;
             font-size: 1.2em;
             opacity: 0.95;
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.4);
+            position: relative;
+            z-index: 1;
         }
-        
+
         header .company {
             text-align: center;
             font-size: 0.9em;
             opacity: 0.88;
             font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .disclaimer-banner {
-            background: #dc2626;
+            background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
             color: white;
             padding: 1rem;
             text-align: center;
             font-weight: 600;
             font-size: 1.1em;
-            border-bottom: 3px solid #991b1b;
+            border-bottom: 3px solid #ff5252;
+            box-shadow: 0 2px 10px rgba(183, 28, 28, 0.5);
         }
-        
+
         nav {
-            background: #1e293b;
-            border-bottom: 3px solid #3b82f6;
+            background: linear-gradient(135deg, #0a1929 0%, #1a237e 100%);
+            border-bottom: 3px solid #00ff9d;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
         }
-        
+
         .nav-container {
             display: flex;
             flex-wrap: wrap;
@@ -82,10 +128,10 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .nav-btn {
             background: transparent;
-            color: white;
+            color: #e0f2f1;
             border: none;
             padding: 1rem 1.5rem;
             cursor: pointer;
@@ -96,217 +142,250 @@
             flex: 1;
             min-width: 120px;
         }
-        
+
         .nav-btn:hover {
-            background: rgba(59, 130, 246, 0.2);
-            border-bottom-color: #60a5fa;
+            background: rgba(0, 255, 157, 0.15);
+            border-bottom-color: #40c4ff;
+            color: #00ff9d;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.6);
         }
-        
+
         .nav-btn.active {
-            background: rgba(59, 130, 246, 0.3);
-            border-bottom-color: #3b82f6;
+            background: rgba(0, 255, 157, 0.2);
+            border-bottom-color: #00ff9d;
+            color: #00ff9d;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.8);
         }
-        
+
         .page {
             display: none;
             padding: 2rem 0;
             min-height: 70vh;
         }
-        
+
         .page.active {
             display: block;
             animation: fadeIn 0.4s;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         .hero {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #1a237e 0%, #004d40 100%);
             color: white;
             padding: 3rem 2rem;
             border-radius: 12px;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+            box-shadow: 0 8px 30px rgba(0, 255, 157, 0.3);
             text-align: center;
+            border: 2px solid rgba(0, 255, 157, 0.3);
         }
-        
+
         .hero h2 {
             font-size: 2.5em;
             margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.6);
         }
-        
+
         .hero p {
             font-size: 1.3em;
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
-        
+
         .card {
-            background: white;
+            background: rgba(10, 25, 41, 0.85);
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 15px rgba(0, 255, 157, 0.2);
+            border-left: 4px solid #00ff9d;
             transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            color: #e0f2f1;
         }
-        
+
         .card:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
             transform: translateY(-2px);
+            border-left-color: #40c4ff;
         }
-        
+
         .card h3 {
-            color: #1e3a8a;
+            color: #00ff9d;
             margin-bottom: 0.75rem;
             font-size: 1.4em;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
         }
-        
+
         .card ul {
             margin-left: 1.25rem;
         }
-        
+
         .card li {
             margin-bottom: 0.5rem;
         }
-        
+
         .info-box {
-            background: #f0f9ff;
-            border-left: 5px solid #3b82f6;
+            background: rgba(26, 35, 126, 0.5);
+            border-left: 5px solid #40c4ff;
             padding: 1.25rem;
             margin: 1.5rem 0;
             border-radius: 4px;
+            color: #e0f2f1;
+            box-shadow: 0 2px 10px rgba(64, 196, 255, 0.2);
         }
-        
+
         .warning-box {
-            background: #fef2f2;
-            border-left: 5px solid #dc2626;
+            background: rgba(183, 28, 28, 0.3);
+            border-left: 5px solid #ff5252;
             padding: 1.25rem;
             margin: 1.5rem 0;
             border-radius: 4px;
+            color: #ffebee;
+            box-shadow: 0 2px 10px rgba(255, 82, 82, 0.3);
         }
-        
+
         .success-box {
-            background: #f0fdf4;
-            border-left: 5px solid #16a34a;
+            background: rgba(0, 77, 64, 0.5);
+            border-left: 5px solid #00ff9d;
             padding: 1.25rem;
             margin: 1.5rem 0;
             border-radius: 4px;
+            color: #e0f2f1;
+            box-shadow: 0 2px 10px rgba(0, 255, 157, 0.3);
         }
-        
+
         .content-section {
-            background: white;
+            background: rgba(10, 25, 41, 0.85);
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 255, 157, 0.2);
+            backdrop-filter: blur(10px);
+            color: #e0f2f1;
+            border: 1px solid rgba(0, 255, 157, 0.2);
         }
-        
+
         .content-section h2 {
-            color: #1e3a8a;
+            color: #00ff9d;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 3px solid #3b82f6;
+            border-bottom: 3px solid #40c4ff;
             font-size: 2em;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
         }
-        
+
         .content-section h3 {
-            color: #1e40af;
+            color: #40c4ff;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
             font-size: 1.5em;
+            text-shadow: 0 0 10px rgba(64, 196, 255, 0.5);
         }
-        
+
         .content-section h4 {
-            color: #2563eb;
+            color: #80deea;
             margin-top: 1rem;
             margin-bottom: 0.5rem;
             font-size: 1.2em;
         }
-        
+
         .attorney-card {
-            background: white;
+            background: rgba(10, 25, 41, 0.85);
             padding: 1.25rem;
             margin-bottom: 1rem;
             border-radius: 6px;
-            border-left: 4px solid #3b82f6;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            border-left: 4px solid #40c4ff;
+            box-shadow: 0 2px 10px rgba(64, 196, 255, 0.2);
+            color: #e0f2f1;
         }
-        
+
         .attorney-card h4 {
-            color: #1e3a8a;
+            color: #00ff9d;
             margin-bottom: 0.5rem;
         }
-        
+
         .attorney-card a {
-            color: #2563eb;
+            color: #40c4ff;
             text-decoration: none;
             font-weight: 500;
         }
-        
+
         .attorney-card a:hover {
             text-decoration: underline;
+            color: #80deea;
         }
-        
+
         .template {
-            background: #f8fafc;
-            border: 2px solid #cbd5e1;
+            background: rgba(10, 25, 41, 0.9);
+            border: 2px solid #40c4ff;
             padding: 1.5rem;
             margin: 1.5rem 0;
             border-radius: 6px;
             font-family: 'Courier New', monospace;
             font-size: 0.95em;
             white-space: pre-wrap;
+            color: #e0f2f1;
+            box-shadow: 0 2px 10px rgba(64, 196, 255, 0.2);
         }
-        
+
         footer {
-            background: #1e293b;
-            color: white;
+            background: linear-gradient(135deg, #0a1929 0%, #1a237e 100%);
+            color: #e0f2f1;
             padding: 2rem 0;
             margin-top: 3rem;
+            border-top: 3px solid #00ff9d;
+            box-shadow: 0 -4px 15px rgba(0, 255, 157, 0.2);
         }
-        
+
         footer .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmin(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         footer h3 {
-            color: #60a5fa;
+            color: #00ff9d;
             margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
         }
-        
+
         footer a {
-            color: #93c5fd;
+            color: #40c4ff;
             text-decoration: none;
         }
-        
+
         footer a:hover {
-            color: white;
+            color: #00ff9d;
             text-decoration: underline;
+            text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
         }
-        
+
         footer .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid #334155;
+            border-top: 1px solid rgba(0, 255, 157, 0.3);
             font-size: 0.9em;
             opacity: 0.8;
         }
-        
+
         @media (max-width: 768px) {
+            .header-logo {
+                max-width: 80px;
+            }
+            
             header h1 {
                 font-size: 1.8em;
             }
@@ -325,7 +404,7 @@
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media print {
             nav, footer, .nav-btn {
                 display: none;
@@ -337,11 +416,14 @@
             
             body {
                 background: white;
+                color: black;
             }
             
             .content-section, .card {
                 box-shadow: none;
                 border: 1px solid #ddd;
+                background: white;
+                color: black;
             }
         }
     </style>
@@ -349,13 +431,14 @@
 <body>
     <header>
         <div class="container">
+            <img src="MNTenantsRights.png" alt="MN Tenant Rights Logo" class="header-logo">
             <h1>Minnesota Tenant Rights</h1>
             <div class="tagline">Know Your Rights • Understand the Law • Protect Yourself</div>
-            <div class="company">Operated by Kurrasch Gaming Merch Store LLC</div>
+            <div class="company">Operated by Kurrasch Systems Studios LLC</div>
         </div>
     </header>
     
-    <div class="disclaimer-banner">
+   <div class="disclaimer-banner">
         ⚠ WE ARE NOT A LAW FIRM | WE ARE NOT A NONPROFIT | THIS IS FOR EDUCATIONAL PURPOSES ONLY ⚠
     </div>
     
@@ -368,6 +451,8 @@
             <button class="nav-btn" onclick="showPage('building-codes')">Building Codes</button>
             <button class="nav-btn" onclick="showPage('statutes')">Laws & Statutes</button>
             <button class="nav-btn" onclick="showPage('templates')">Letter Templates</button>
+            <button class="nav-btn" onclick="showPage('landlord-communication')">Landlord Communication</button>
+            <button class="nav-btn" onclick="showPage('security-cameras')">Security Cameras</button>
             <button class="nav-btn" onclick="showPage('attorneys')">Find Attorney</button>
             <button class="nav-btn" onclick="showPage('resources')">Legal Aid</button>
             <button class="nav-btn" onclick="showPage('attorney-general')">Attorney General</button>
@@ -379,53 +464,146 @@
         <!-- HOME PAGE -->
         <div id="home" class="page active">
             <div class="hero">
-                <h2>Welcome to Minnesota Tenant Rights</h2>
-                <p>Your complete guide to understanding Minnesota tenant protections, landlord responsibilities, and your legal rights under state and federal law.</p>
+                <h2>🏠 Welcome to Minnesota Tenant Rights</h2>
+                <p>Your comprehensive guide to understanding Minnesota tenant protections, landlord responsibilities, and your legal rights under state and federal law. Empowering renters with knowledge and resources.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Why This Site Exists</h2>
+                <p>Too many Minnesota tenants don't know their rights until it's too late. Landlords take advantage of this knowledge gap—demanding illegal information, violating privacy, discriminating based on disability, and retaliating against those who speak up. <strong>This stops when tenants know the law.</strong></p>
+                <p>We've compiled real examples, actual statutes, legal templates, and attorney resources all in one place. Whether you're dealing with harassment, illegal lease terms, unsafe conditions, or discrimination—you'll find the laws that protect you and the tools to fight back.</p>
             </div>
             
             <div class="card-grid">
                 <div class="card">
                     <h3>🛡️ Know Your Rights</h3>
-                    <p>Learn what landlords <strong>cannot</strong> do after your lease starts, including requesting financial information, privacy violations, and disability discrimination.</p>
+                    <p>Discover what landlords <strong>cannot legally do</strong> after your lease begins:</p>
+                    <ul>
+                        <li>Requesting financial statements or paystubs</li>
+                        <li>Demanding bank account information</li>
+                        <li>Privacy violations and illegal entry</li>
+                        <li>Disability discrimination</li>
+                        <li>Retaliation for asserting rights</li>
+                    </ul>
                 </div>
                 
                 <div class="card">
                     <h3>📋 Real Examples</h3>
-                    <p>See actual situations Minnesota tenants have faced, what laws were violated, and exactly what steps to take.</p>
+                    <p>See <strong>15+ actual situations</strong> Minnesota tenants have faced:</p>
+                    <ul>
+                        <li>What laws were violated</li>
+                        <li>Exact legal citations and statute numbers</li>
+                        <li>Step-by-step action plans</li>
+                        <li>How to document and report violations</li>
+                    </ul>
                 </div>
                 
                 <div class="card">
                     <h3>📜 Complete Statutes</h3>
-                    <p>Read the actual Minnesota laws that protect you, with direct links to official sources and plain-language explanations.</p>
+                    <p>Read the <strong>actual Minnesota laws</strong> that protect you:</p>
+                    <ul>
+                        <li>17 key statutes with full text</li>
+                        <li>Plain-language explanations</li>
+                        <li>Direct links to official sources</li>
+                        <li>Federal and state protections</li>
+                    </ul>
                 </div>
                 
                 <div class="card">
                     <h3>✉️ Letter Templates</h3>
-                    <p>Download ready-to-use templates to communicate with your landlord professionally and legally.</p>
+                    <p>Professional, legally-sound templates ready to use:</p>
+                    <ul>
+                        <li>10 different situations covered</li>
+                        <li>Copy-paste ready format</li>
+                        <li>Includes proper legal citations</li>
+                        <li>Creates paper trail for legal action</li>
+                    </ul>
                 </div>
                 
                 <div class="card">
                     <h3>⚖️ Find Legal Help</h3>
-                    <p>Connect with attorneys across Minnesota, free legal aid organizations, and the Minnesota Attorney General's office.</p>
+                    <p>Connect with the right resources:</p>
+                    <ul>
+                        <li>Tenant rights attorneys across Minnesota</li>
+                        <li>Free legal aid organizations</li>
+                        <li>Minnesota Attorney General's office</li>
+                        <li>Tenant advocacy groups</li>
+                    </ul>
                 </div>
                 
                 <div class="card">
                     <h3>🏗️ Building Codes</h3>
-                    <p>Understand what's required when converting buildings, including fire safety, electrical, and habitability standards.</p>
+                    <p>Understand conversion and habitability requirements:</p>
+                    <ul>
+                        <li>Fire safety and egress standards</li>
+                        <li>Electrical code requirements</li>
+                        <li>Minimum habitability standards</li>
+                        <li>When landlords must make repairs</li>
+                    </ul>
                 </div>
+
+                <div class="card">
+                    <h3>📞 Landlord Communication</h3>
+                    <p>Learn effective communication strategies:</p>
+                    <ul>
+                        <li>How to document everything properly</li>
+                        <li>When to put requests in writing</li>
+                        <li>Creating legally valid paper trails</li>
+                        <li>What to do when ignored</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📹 Security Cameras</h3>
+                    <p>Know your rights regarding surveillance:</p>
+                    <ul>
+                        <li>Where cameras are/aren't allowed</li>
+                        <li>Privacy protections in your unit</li>
+                        <li>Audio recording restrictions</li>
+                        <li>What to do about illegal surveillance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h3>💡 How to Use This Site</h3>
+                <p><strong>Step 1:</strong> Identify your situation in the "Real Examples" section</p>
+                <p><strong>Step 2:</strong> Read the relevant statutes to understand your legal protections</p>
+                <p><strong>Step 3:</strong> Use our letter templates to communicate formally with your landlord</p>
+                <p><strong>Step 4:</strong> If needed, find an attorney or contact legal aid organizations</p>
+                <p><strong>Step 5:</strong> Document everything and keep copies of all communications</p>
             </div>
             
             <div class="warning-box">
                 <h3>⚠️ Important Disclaimer</h3>
-                <p><strong>This website is for educational purposes only.</strong> Kurrasch Gaming Merch Store LLC operates this site to educate Minnesota tenants about their rights. We are <strong>NOT</strong> a law firm. We do <strong>NOT</strong> provide legal representation. We are <strong>NOT</strong> a nonprofit organization. All information provided is educational. For legal advice specific to your situation, consult a licensed attorney.</p>
+                <p><strong>This website is for educational purposes only.</strong> Kurrasch Systems Studios LLC operates this site to educate Minnesota tenants about their rights. We are <strong>NOT</strong> a law firm. We do <strong>NOT</strong> provide legal representation. We are <strong>NOT</strong> a nonprofit organization. All information provided is educational and should not be considered legal advice. For legal advice specific to your situation, consult a licensed attorney.</p>
             </div>
             
             <div class="info-box">
-                <h3>📞 Emergency Resources</h3>
-                <p><strong>HOME Line (Twin Cities):</strong> <a href="tel:6127285767">(612) 728-5767</a></p>
-                <p><strong>HOME Line (Greater MN):</strong> <a href="tel:8668663546">(866) 866-3546</a></p>
-                <p><strong>Minnesota Attorney General:</strong> <a href="tel:6512963353">(651) 296-3353</a></p>
-                <p><strong>Emergency:</strong> Call 911 or your local police department</p>
+                <h3>📞 Emergency Resources - Save These Numbers</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div>
+                        <p><strong>🏡 HOME Line (Twin Cities):</strong><br><a href="tel:6127285767" style="font-size: 1.2em; color: #00ff9d;">(612) 728-5767</a><br><em>Free tenant hotline</em></p>
+                    </div>
+                    <div>
+                        <p><strong>🏡 HOME Line (Greater MN):</strong><br><a href="tel:8668663546" style="font-size: 1.2em; color: #00ff9d;">(866) 866-3546</a><br><em>Toll-free statewide</em></p>
+                    </div>
+                    <div>
+                        <p><strong>⚖️ MN Attorney General:</strong><br><a href="tel:6512963353" style="font-size: 1.2em; color: #00ff9d;">(651) 296-3353</a><br><em>File complaints</em></p>
+                    </div>
+                    <div>
+                        <p><strong>🚨 Emergency:</strong><br><a href="tel:911" style="font-size: 1.2em; color: #ff5252;">911</a><br><em>Immediate danger only</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" style="margin-top: 2rem;">
+                <h2>About This Resource</h2>
+                <p><strong>Operated by:</strong> Kurrasch Systems Studios LLC</p>
+                <p><strong>Mission:</strong> To provide free, accessible education about Minnesota tenant rights and protections</p>
+                <p><strong>Last Updated:</strong> November 2024</p>
+                <p><strong>Coverage:</strong> Minnesota state law, federal Fair Housing Act, and relevant building codes</p>
+                <p style="margin-top: 1rem;"><em>This site is maintained by tenants, for tenants. We believe knowledge is power, and every Minnesota renter deserves to know their legal rights.</em></p>
             </div>
         </div>
         
@@ -526,7 +704,7 @@
                 <h3>What This Site Is NOT</h3>
                 <div class="warning-box">
                     <h4>⚠️ IMPORTANT DISCLAIMERS</h4>
-                    <p><strong>Kurrasch Gaming Merch Store LLC</strong> operates this website. We want to be absolutely clear about what we are and what we are NOT:</p>
+                    <p><strong>Kurrasch Systems Studios LLC</strong> operates this website. We want to be absolutely clear about what we are and what we are NOT:</p>
                     <ul>
                         <li><strong>We are NOT a law firm.</strong> We do not practice law.</li>
                         <li><strong>We are NOT attorneys.</strong> We do not provide legal representation.</li>
@@ -549,7 +727,7 @@
                         <li>New court decisions affecting tenant rights</li>
                         <li>Changes to enforcement procedures or contact information</li>
                     </ul>
-                    <p><strong>Last Major Update:</strong> November 2025 (includes laws effective January 1, 2025)</p>
+                    <p><strong>Last Major Update:</strong> November 2024</p>
                     <p><strong>Next Scheduled Review:</strong> January 2026</p>
                     <p>If you find outdated information or errors, we encourage you to verify with official sources and consult a licensed attorney.</p>
                 </div>
@@ -567,6 +745,7 @@
         <div id="your-rights" class="page">
             <div class="content-section">
                 <h2>Your Rights as a Minnesota Tenant</h2>
+                <p>Understanding your rights is the first step to protecting yourself. Minnesota law provides extensive protections for tenants—but only if you know they exist and how to use them.</p>
                 
                 <h3>What Landlords CANNOT Do After Your Lease Has Started</h3>
                 
@@ -587,6 +766,9 @@
                         <li><strong>Remove your possessions</strong> without court order</li>
                         <li><strong>Change locks</strong> to lock you out without proper eviction</li>
                         <li><strong>Harass or intimidate you</strong> based on protected characteristics</li>
+                        <li><strong>Charge excessive late fees</strong> beyond what's stated in your lease</li>
+                        <li><strong>Keep your security deposit without itemized reasons</strong></li>
+                        <li><strong>Evict you without going through court</strong> (self-help evictions are illegal)</li>
                     </ul>
                 </div>
                 
@@ -605,6 +787,209 @@
                         <li><strong>Security Deposit Return</strong> – Within 21 days with itemized deductions</li>
                         <li><strong>Reasonable Accommodations</strong> – For disabilities (service animals, accessible parking, etc.)</li>
                         <li><strong>Organize with Other Tenants</strong> – Form tenant associations, collectively assert rights</li>
+                        <li><strong>Request Repairs in Writing</strong> – Create paper trail for maintenance issues</li>
+                        <li><strong>Access Your Rental Unit</strong> – Landlord cannot deny you entry to your own home</li>
+                        <li><strong>Peaceful Enjoyment</strong> – Live without harassment, threats, or interference</li>
+                        <li><strong>Challenge Illegal Lease Terms</strong> – Unenforceable clauses can be voided</li>
+                    </ul>
+                </div>
+
+                <h3>Privacy Rights in Detail</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>🚪 Entry Requirements</h3>
+                        <p><strong>Minnesota Statute § 504B.211</strong></p>
+                        <ul>
+                            <li>Landlord must give <strong>24-hour advance notice</strong> before entering</li>
+                            <li>Entry must be at reasonable times (usually 8am-8pm)</li>
+                            <li>Valid reasons: repairs, inspections, showings to prospective tenants</li>
+                            <li>Emergency exceptions: fire, flood, gas leak, immediate danger</li>
+                        </ul>
+                        <p><strong>What to do if violated:</strong> Document each illegal entry, send written objection to landlord, file police report if repeated, contact attorney.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>📹 Surveillance Protections</h3>
+                        <p><strong>Minnesota Statute § 609.746</strong></p>
+                        <ul>
+                            <li>No cameras in bedrooms, bathrooms, or private spaces</li>
+                            <li>Audio recording restrictions apply</li>
+                            <li>Criminal offense to violate privacy expectations</li>
+                            <li>Common areas may have cameras with proper notice</li>
+                        </ul>
+                        <p><strong>What to do if violated:</strong> Call police immediately, document camera locations with photos, do not remove cameras yourself, consult attorney about civil damages.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>💰 Financial Information</h3>
+                        <p><strong>Minnesota Statute § 363A.09</strong></p>
+                        <ul>
+                            <li>Cannot demand pay stubs after lease signed</li>
+                            <li>Cannot request bank statements from current tenants</li>
+                            <li>Cannot ask for proof of disability income</li>
+                            <li>Screening happens <strong>before</strong> lease, not after</li>
+                        </ul>
+                        <p><strong>What to do if violated:</strong> Refuse request in writing, cite MN § 363A.09, document all demands, file complaint with MN Dept of Human Rights.</p>
+                    </div>
+                </div>
+
+                <h3>Disability Rights & Discrimination</h3>
+                <div class="info-box">
+                    <h4>Protected Under State & Federal Law</h4>
+                    <p>If you have a disability, you have additional protections:</p>
+                    <ul>
+                        <li><strong>Reasonable Accommodations</strong> – Landlord must allow modifications like grab bars, ramps, service animals</li>
+                        <li><strong>No Discrimination</strong> – Cannot refuse housing, charge more, or provide different terms because of disability</li>
+                        <li><strong>No Intrusive Questions</strong> – Landlord cannot ask about your disability, only about accommodation needs</li>
+                        <li><strong>Service/Emotional Support Animals</strong> – Must be allowed even in "no pets" buildings with proper documentation</li>
+                        <li><strong>Accessible Parking</strong> – Must provide if medically necessary</li>
+                        <li><strong>Modification Rights</strong> – Can make accessibility modifications at your expense (must restore at move-out)</li>
+                    </ul>
+                    <p><strong>Key Laws:</strong> Fair Housing Act (42 USC § 3604), Americans with Disabilities Act, MN Human Rights Act (§ 363A.09)</p>
+                </div>
+
+                <h3>Retaliation Protections</h3>
+                <div class="warning-box">
+                    <h4>Minnesota Statute § 504B.285 – Retaliation is ILLEGAL</h4>
+                    <p>Your landlord <strong>cannot retaliate</strong> against you for:</p>
+                    <ul>
+                        <li>Reporting code violations to city inspectors</li>
+                        <li>Contacting the Minnesota Attorney General</li>
+                        <li>Calling police about illegal landlord conduct</li>
+                        <li>Requesting necessary repairs</li>
+                        <li>Organizing with other tenants</li>
+                        <li>Filing a discrimination complaint</li>
+                        <li>Withholding rent for habitability issues (done properly)</li>
+                        <li>Asserting any legal right</li>
+                    </ul>
+                    <p><strong>Protected Period:</strong> 90 days after asserting your rights</p>
+                    <p><strong>Forms of Illegal Retaliation:</strong></p>
+                    <ul>
+                        <li>Threatening eviction</li>
+                        <li>Filing eviction proceedings</li>
+                        <li>Increasing rent</li>
+                        <li>Decreasing services</li>
+                        <li>Refusing to renew lease</li>
+                        <li>Harassment or intimidation</li>
+                    </ul>
+                    <p><strong>What to do:</strong> Document the protected activity (your complaint/report), document the retaliatory action, note the timeline (within 90 days), file complaint with AG, consult attorney about damages.</p>
+                </div>
+
+                <h3>Habitability Requirements</h3>
+                <div class="success-box">
+                    <h4>What Your Landlord MUST Provide</h4>
+                    <p><strong>Minnesota Statute § 504B.161</strong> requires landlords to maintain:</p>
+                    <ul>
+                        <li><strong>Heat:</strong> Minimum 68°F from October 1 to May 1</li>
+                        <li><strong>Hot Water:</strong> Minimum 120°F at all times</li>
+                        <li><strong>Electricity:</strong> Working outlets, lights, breaker panel</li>
+                        <li><strong>Plumbing:</strong> Working toilets, sinks, drains</li>
+                        <li><strong>Structural Integrity:</strong> No holes in walls/ceilings, secure windows/doors</li>
+                        <li><strong>Pest Control:</strong> Free from rodents, bedbugs, roaches (if not tenant-caused)</li>
+                        <li><strong>Safety:</strong> Working smoke/CO detectors, secure locks</li>
+                        <li><strong>Sanitation:</strong> No mold, sewage, garbage accumulation</li>
+                        <li><strong>Weatherproofing:</strong> Roof doesn't leak, windows close properly</li>
+                    </ul>
+                    <p><strong>Repair Timeline:</strong> Landlord must make repairs within reasonable time after written notice. Emergency repairs (no heat, no water) must be immediate.</p>
+                </div>
+
+                <h3>Security Deposit Rights</h3>
+                <div class="info-box">
+                    <h4>Minnesota Statute § 504B.178</h4>
+                    <ul>
+                        <li>Landlord has <strong>21 days</strong> to return deposit or provide itemized list of deductions</li>
+                        <li>Deductions only for: unpaid rent, damage beyond normal wear and tear, cleaning if lease requires it</li>
+                        <li><strong>Normal wear and tear</strong> cannot be charged (faded paint, worn carpet, minor scuffs)</li>
+                        <li>If landlord fails to return/itemize, you can sue for <strong>double the deposit</strong> plus attorney fees</li>
+                        <li>Interest must be paid on deposits held over one year (1% annually)</li>
+                    </ul>
+                </div>
+
+                <h3>Eviction Protections</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>⚖️ Legal Eviction Process</h3>
+                        <p>Landlords <strong>must</strong> go through court:</p>
+                        <ul>
+                            <li>File eviction lawsuit (Unlawful Detainer)</li>
+                            <li>Serve you with summons</li>
+                            <li>Give you time to respond</li>
+                            <li>Attend court hearing</li>
+                            <li>Judge issues order</li>
+                            <li>Sheriff enforces if you lose</li>
+                        </ul>
+                        <p><strong>Self-help evictions are illegal</strong> – landlord cannot lock you out, remove belongings, or shut off utilities.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🛡️ Defenses to Eviction</h3>
+                        <p>You can fight eviction if:</p>
+                        <ul>
+                            <li>Eviction is retaliatory</li>
+                            <li>Eviction is discriminatory</li>
+                            <li>Notice was improper</li>
+                            <li>Landlord violated habitability</li>
+                            <li>Rent was paid on time</li>
+                            <li>Landlord accepted rent after notice</li>
+                            <li>Lease terms were illegal</li>
+                        </ul>
+                        <p><strong>Always appear in court</strong> – default judgments happen if you don't show up.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🚨 Sealing Eviction Records</h3>
+                        <p>Minnesota law allows sealing in some cases:</p>
+                        <ul>
+                            <li>If you won the eviction case</li>
+                            <li>If case was dismissed</li>
+                            <li>If eviction was for unpaid rent and you paid it</li>
+                            <li>After 3 years with no new evictions</li>
+                        </ul>
+                        <p><strong>Expungement helps</strong> with future housing applications.</p>
+                    </div>
+                </div>
+
+                <h3>When Can You Break Your Lease?</h3>
+                <div class="success-box">
+                    <h4>Legal Reasons to Terminate Lease Early</h4>
+                    <ul>
+                        <li><strong>Domestic Violence:</strong> Victims can break lease with 30 days notice and police report/order for protection</li>
+                        <li><strong>Military Deployment:</strong> Active duty orders allow early termination</li>
+                        <li><strong>Uninhabitable Conditions:</strong> Serious violations landlord refuses to fix</li>
+                        <li><strong>Landlord Violation:</strong> Material breach of lease by landlord</li>
+                        <li><strong>Illegal Unit:</strong> Housing code violations make unit unlivable</li>
+                        <li><strong>Job Relocation:</strong> Only if lease includes relocation clause</li>
+                    </ul>
+                    <p><strong>Follow proper procedures:</strong> Written notice, documentation of conditions, allow landlord time to fix if applicable.</p>
+                </div>
+
+                <h3>Source of Income Discrimination</h3>
+                <div class="warning-box">
+                    <h4>Section 8 / Housing Choice Vouchers</h4>
+                    <p>Minnesota law <strong>prohibits</strong> discrimination based on source of income:</p>
+                    <ul>
+                        <li>Landlords cannot refuse Section 8 vouchers</li>
+                        <li>Cannot charge higher rent because of voucher</li>
+                        <li>Cannot impose different lease terms</li>
+                        <li>Cannot delay approval process</li>
+                        <li>Must accept other lawful income sources (SSI, SSDI, unemployment, child support)</li>
+                    </ul>
+                    <p><strong>Exception:</strong> Owner-occupied buildings with rental unit in same structure (duplex where landlord lives in one unit).</p>
+                    <p><strong>What to do:</strong> File complaint with MN Department of Human Rights, contact HUD, document refusal in writing.</p>
+                </div>
+
+                <h3>Remember: Knowledge is Power</h3>
+                <div class="info-box">
+                    <p>These rights only matter if you <strong>know them and use them</strong>. Landlords count on tenants not knowing the law. Don't let illegal conduct go unchallenged.</p>
+                    <p><strong>Always:</strong></p>
+                    <ul>
+                        <li>✅ Document everything in writing</li>
+                        <li>✅ Keep copies of all communications</li>
+                        <li>✅ Take photos/videos of violations</li>
+                        <li>✅ Get witnesses when possible</li>
+                        <li>✅ Know the statutes that protect you</li>
+                        <li>✅ Don't be afraid to assert your rights</li>
+                        <li>✅ Contact authorities when laws are broken</li>
                     </ul>
                 </div>
             </div>
@@ -4497,6 +4882,7 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     </script>
 </body>
 </html>
+
 
 
 
