@@ -451,18 +451,70 @@ header .company {
             color: #80deea;
         }
 
-        .template {
-            background: rgba(10, 25, 41, 0.9);
-            border: 2px solid #40c4ff;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 6px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
-            white-space: pre-wrap;
-            color: #e0f2f1;
-            box-shadow: 0 2px 10px rgba(64, 196, 255, 0.2);
-        }
+        .template-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.template-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #1a237e 0%, #004d40 100%);
+    color: #00ff9d;
+    border: 2px solid #00ff9d;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.2);
+    text-decoration: none;
+}
+
+.template-btn:hover {
+    background: linear-gradient(135deg, #004d40 0%, #1a237e 100%);
+    box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
+    transform: translateY(-2px);
+}
+
+.template-btn:active {
+    transform: translateY(0);
+}
+
+.copy-notification {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #004d40 0%, #1a237e 100%);
+    color: #00ff9d;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 2px solid #00ff9d;
+    box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
+    z-index: 10001;
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+}
+
+.copy-notification.show {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
         footer {
             background: linear-gradient(135deg, #0a1929 0%, #1a237e 100%);
@@ -2266,8 +2318,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 1: Declining Improper Financial Information Request</h3>
                 <p><strong>Use this when:</strong> Landlord requests bank statements, tax returns, proof of disability payments, pay stubs, or other financial information after your lease has already started.</p>
-                
-                <div class="template">[Your Name]
+               <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template1')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template1', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template1">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -2338,8 +2399,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 2: Reporting Privacy Violation - Unauthorized Entry or Surveillance</h3>
                 <p><strong>Use this when:</strong> Landlord enters without proper 24-hour notice, installs surveillance cameras in private areas, or otherwise violates your privacy rights.</p>
-                
-                <div class="template">[Your Name]
+                <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template2')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template2', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template2">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -2435,8 +2505,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 3: Cease and Desist - Disability Discrimination and Harassment</h3>
                 <p><strong>Use this when:</strong> Landlord repeatedly questions you about disability payments, income sources, makes discriminatory comments, or harasses you based on disability status.</p>
-                
-                <div class="template">[Your Name]
+                <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template3')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template3', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template3">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -2571,8 +2650,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 4: Asserting Retaliation Defense Under Minnesota Statute § 504B.285</h3>
                 <p><strong>Use this when:</strong> Landlord takes adverse action (eviction notice, rent increase, lease termination, reduction of services) within 90 days after you asserted your rights, reported code violations, or filed complaints.</p>
-                
-                <div class="template">[Your Name]
+                <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template4')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template4', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template4">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -2734,8 +2822,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 5: Request for Reasonable Accommodation Under Fair Housing Act</h3>
                 <p><strong>Use this when:</strong> Requesting accommodation for a disability, such as emotional support animal, accessible parking, structural modifications, exception to pet policy, or other necessary accommodation.</p>
-                
-                <div class="template">[Your Name]
+                <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template5')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template5', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template5">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -2903,8 +3000,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 6: Demand for Emergency Repair - Uninhabitable Conditions</h3>
                 <p><strong>Use this when:</strong> Landlord refuses to make urgent repairs affecting habitability (no heat, no water, broken furnace, gas leak, sewage backup, mold, electrical hazards, etc.).</p>
-                
-                <div class="template">[Your Name]
+                <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template6')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template6', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template6">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3108,8 +3214,16 @@ header .company {
             <div class="content-section">
                 <h3>Template 7: Final Demand for Return of Security Deposit</h3>
                 <p><strong>Use this when:</strong> Landlord has not returned security deposit within 21 days of move-out, or provided itemized statement showing lawful deductions.</p>
-                
-                <div class="template">[Your Name]
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template7')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template7', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template7">[Your Name]
             [Your Current Mailing Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3310,8 +3424,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 8: Formal Complaint to City Building Inspector - Code Violations</h3>
                 <p><strong>Use this when:</strong> Reporting health, safety, building code, or habitability violations to your city's building inspection department for official investigation and enforcement.</p>
-                
-                <div class="template">[Your Name]
+                <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template8')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template8', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template8">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3653,8 +3776,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 9: Notice of Intent to Withhold Rent - Breach of Habitability</h3>
                 <p><strong>Use this when:</strong> Planning to withhold rent and place it in escrow due to serious habitability violations that landlord has failed to repair after proper notice.</p>
-                
-                <div class="template">[Your Name]
+                <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template9')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template9', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template9">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3954,8 +4086,17 @@ header .company {
             <div class="content-section">
                 <h3>Template 10: Notice of Lease Termination - Domestic Violence / Harassment / Stalking</h3>
                 <p><strong>Use this when:</strong> You are a victim of domestic violence, harassment, or stalking and need to terminate your lease early under Minnesota's victim protection laws. This letter must be kept confidential for your safety.</p>
-                
-                <div class="template">[Your Name]
+                 <!-- ACTION BUTTONS -->
+    <div class="template-actions">
+        <button class="template-btn" onclick="copyTemplate('template10')">
+            📋 Copy to Clipboard
+        </button>
+        <button class="template-btn" onclick="downloadTemplatePDF('template10', 'Declining_Financial_Information_Request')">
+            📥 Download PDF
+        </button>
+    </div>
+    
+    <div class="template" id="template10">[Your Name]
             [Your Current Address - ONLY if safe to use]
             [City, State, ZIP Code]
             [Your Phone Number - ONLY if safe to provide]
@@ -4429,9 +4570,12 @@ IMPORTANT REMINDERS FOR LANDLORD:
 8. Call 911 if [ABUSER'S NAME] comes to the property
 9. This is confidential - do not discuss with other tenants or vendors
 
-THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>  
-</div>     
-</div>          
+THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.
+</div>  
+</div>
+<div id="copyNotification" class="copy-notification"></div>
+</div>
+        
 
     <!-- ATTORNEYS PAGE - COMPREHENSIVE MINNESOTA COVERAGE -->
     <div id="attorneys" class="page">
@@ -5160,6 +5304,66 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
     
  <!-- JAVASCRIPT FOR NAVIGATION -->
 <script>
+    // Copy template to clipboard
+function copyTemplate(templateId) {
+    const templateElement = document.getElementById(templateId);
+    const templateText = templateElement.innerText;
+    
+    navigator.clipboard.writeText(templateText).then(function() {
+        showCopyNotification('Template copied to clipboard!');
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+        showCopyNotification('Failed to copy. Please try again.');
+    });
+}
+
+// Show copy notification
+function showCopyNotification(message) {
+    const notification = document.getElementById('copyNotification');
+    notification.textContent = message;
+    notification.classList.add('show');
+    
+    setTimeout(function() {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
+// Download template as PDF
+function downloadTemplatePDF(templateId, templateName) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    const templateElement = document.getElementById(templateId);
+    const templateText = templateElement.innerText;
+    
+    // Set font and margins
+    doc.setFont('courier');
+    doc.setFontSize(10);
+    
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 15;
+    const maxLineWidth = pageWidth - (margin * 2);
+    const lineHeight = 5;
+    
+    // Split text into lines
+    const lines = doc.splitTextToSize(templateText, maxLineWidth);
+    
+    let cursorY = margin;
+    
+    lines.forEach((line, index) => {
+        if (cursorY > pageHeight - margin) {
+            doc.addPage();
+            cursorY = margin;
+        }
+        doc.text(line, margin, cursorY);
+        cursorY += lineHeight;
+    });
+    
+    // Save PDF
+    doc.save(templateName + '.pdf');
+    showCopyNotification('PDF downloaded successfully!');
+}
     function showPage(pageId) {
         const pages = document.querySelectorAll('.page');
         pages.forEach(page => page.classList.remove('active'));
@@ -5264,8 +5468,10 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.</div>
         showPage('home');
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
+
 
 
 
