@@ -291,6 +291,19 @@ header .company {
             display: block;
             animation: fadeIn 0.4s;
         }
+    .donate-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.donate-btn:hover {
+  background-color: #218838;
+}
+
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -748,6 +761,7 @@ header .company {
             <button class="nav-btn" onclick="showPage('resources')">Legal Aid</button>
             <button class="nav-btn" onclick="showPage('attorney-general')">Attorney General</button>
             <button class="nav-btn" onclick="showPage('tenant-justice')">Tenant Justice MN</button>
+            <li><a href="https://www.gofundme.com/f/help-launch-tenant-justice-mn" target="_blank" class="donate-btn">Donate</a></li>
         </div>
     </nav>
     
@@ -5471,6 +5485,7 @@ function downloadTemplatePDF(templateId, templateName) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
+
 
 
 
