@@ -449,58 +449,180 @@ header .company {
             color: #80deea;
         }
 
-        .template-actions {
+        /* Templates Section Specific Styles */
+.templates-section-header {
+    background: linear-gradient(135deg, #1a3a52 0%, #2d5f7a 100%);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 2px solid #4db8ac;
+}
+
+.templates-section-header img {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(77, 184, 172, 0.5));
+}
+
+.templates-section-header h2 {
+    color: #4db8ac;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(77, 184, 172, 0.4);
+}
+
+.templates-section-header p {
+    color: #b8e6e0;
+    font-size: 1.1rem;
+}
+
+.template-card {
+    background: rgba(29, 64, 86, 0.8);
+    border: 2px solid #2d5f7a;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.template-card:hover {
+    border-color: #4db8ac;
+    box-shadow: 0 4px 20px rgba(77, 184, 172, 0.3);
+}
+
+.template-header {
+    background: linear-gradient(135deg, #1d4056 0%, #2d5f7a 100%);
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.template-header:hover {
+    background: linear-gradient(135deg, #2d5f7a 0%, #3d7f9a 100%);
+}
+
+.template-header h3 {
+    color: #4db8ac;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.template-header p {
+    color: #b8e6e0;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.template-toggle {
+    font-size: 1.5rem;
+    color: #4db8ac;
+    transition: transform 0.3s ease;
+}
+
+.template-toggle.active {
+    transform: rotate(180deg);
+}
+
+.template-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.template-content.active {
+    max-height: 5000px;
+}
+
+.template-inner {
+    padding: 1.5rem;
+}
+
+.template-actions {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
 .template-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #1a237e 0%, #004d40 100%);
-    color: #00ff9d;
-    border: 2px solid #00ff9d;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
+    background: linear-gradient(135deg, #4db8ac 0%, #3d9688 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.2);
-    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(77, 184, 172, 0.3);
 }
 
 .template-btn:hover {
-    background: linear-gradient(135deg, #004d40 0%, #1a237e 100%);
-    box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
+    background: linear-gradient(135deg, #5dc8bc 0%, #4db8ac 100%);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(77, 184, 172, 0.5);
 }
 
-.template-btn:active {
-    transform: translateY(0);
+.template-text {
+    background: rgba(10, 22, 40, 0.6);
+    border: 1px solid #2d5f7a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: #e0f2f7;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .copy-notification {
-    display: none;
     position: fixed;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #004d40 0%, #1a237e 100%);
-    color: #00ff9d;
-    padding: 15px 25px;
+    background: #4db8ac;
+    color: white;
+    padding: 1rem 1.5rem;
     border-radius: 8px;
-    border: 2px solid #00ff9d;
-    box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
-    z-index: 10001;
-    font-weight: 600;
-    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    font-weight: bold;
 }
 
 .copy-notification.show {
-    display: block;
+    opacity: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .templates-section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .template-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .template-actions {
+        flex-direction: column;
+    }
+    
+    .template-btn {
+        width: 100%;
+    }
+    
+    .template-text {
+        font-size: 0.85rem;
+        padding: 1rem;
+    }
 }
 
 @keyframes slideIn {
@@ -4570,12 +4692,1722 @@ IMPORTANT REMINDERS FOR LANDLORD:
 9. This is confidential - do not discuss with other tenants or vendors
 
 THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.
-</div>  
+</div>
+<!-- NEW TEMPLATE 11: Rent Reduction for Code Violations -->
+    <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(11)">
+            <div>
+                <h3>Template 11: Request for Rent Reduction - Code Violations</h3>
+                <p><strong>Use when:</strong> Unit has violations (no kitchen, missing walls, insufficient outlets, uninhabitable conditions) that reduce rental value.</p>
+            </div>
+            <span class="template-toggle" id="toggle-11">▼</span>
+        </div>
+        <div class="template-content" id="content-11">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(11)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(11, 'Rent_Reduction_Request')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-11">[Your Name]
+[Your Address]
+[City, State, ZIP Code]
+[Your Phone Number]
+[Your Email Address]
+[Date]
+
+[Landlord's Name]
+[Landlord's Company Name, if applicable]
+[Landlord's Address]
+[City, State, ZIP Code]
+
+RE: FORMAL DEMAND FOR RENT REDUCTION - Code Violations and Diminished Rental Value
+
+Dear [Landlord's Name],
+
+I am writing to demand an immediate reduction in rent for my unit at [YOUR ADDRESS] due to multiple building code violations and conditions that materially diminish the rental value of the property.
+
+CURRENT RENTAL INFORMATION:
+
+Rental Address: [FULL ADDRESS INCLUDING UNIT NUMBER]
+Current Monthly Rent: $[AMOUNT]
+Lease Start Date: [DATE]
+Square Footage: [IF KNOWN]
+
+BUILDING CODE VIOLATIONS AND HABITABILITY ISSUES:
+
+The following conditions exist in my unit that violate Minnesota building codes and substantially reduce the rental value:
+
+VIOLATION #1: NO KITCHEN OR INADEQUATE KITCHEN FACILITIES
+☐ Unit has NO kitchen at all
+☐ Unit has NO stove or oven
+☐ Unit has NO refrigerator
+☐ Unit has NO sink or running water in kitchen area
+☐ Kitchen is non-functional due to: [DESCRIBE]
+
+Minnesota Building Code requires residential units to have functional kitchen facilities including a sink, cooking appliance, and food storage. A unit without a proper kitchen has significantly reduced rental value.
+
+VIOLATION #2: NO BEDROOM WALLS / LACK OF PRIVACY
+☐ Unit advertised as [NUMBER]-bedroom but has NO walls separating bedroom areas
+☐ "Bedrooms" are open areas with no doors or privacy
+☐ Sleeping areas visible from common areas
+☐ No enclosed spaces for private living
+
+Minnesota Housing Code requires bedrooms to be separate enclosed spaces with doors. Open floor plans without walls do NOT constitute legal bedrooms and reduce rental value by 30-50%.
+
+VIOLATION #3: INSUFFICIENT ELECTRICAL OUTLETS
+☐ Unit has only [NUMBER] electrical outlets total
+☐ Multiple rooms share single outlets requiring extension cords
+☐ No GFCI outlets in bathroom/kitchen as required by code
+☐ Outlets are non-functional or unsafe
+
+Minnesota Electrical Code (NEC) requires:
+- At least one outlet per 12 feet of wall space in habitable rooms
+- No point on a wall can be more than 6 feet from an outlet
+- GFCI protection in bathrooms, kitchens, and outdoor areas
+
+Having only 3 outlets for an entire unit is a SEVERE code violation and fire hazard.
+
+VIOLATION #4: OTHER CODE VIOLATIONS REDUCING RENTAL VALUE
+☐ No heat or inadequate heating system
+☐ Mold growth due to water leaks
+☐ Broken windows or weatherization issues
+☐ Plumbing failures (no hot water, sewage backup)
+☐ Structural damage (sagging floors, ceiling leaks)
+☐ Pest infestation
+☐ [OTHER: DESCRIBE]
+
+EVIDENCE AND DOCUMENTATION:
+
+I have documented these violations with:
+☐ Photographs dated [DATE] showing [violations]
+☐ Video documentation
+☐ City building inspection report dated [DATE]
+☐ Electrical inspection report
+☐ Contractor estimates for repair costs
+
+DIMINISHED RENTAL VALUE ANALYSIS:
+
+Based on these violations, the fair rental value of this unit is substantially LESS than $[CURRENT RENT]:
+
+Current rent: $[CURRENT RENT]/month
+Fair market value for comparable unit WITH kitchen, proper bedrooms, adequate outlets: $[COMPARABLE RENT]
+Reduction for missing kitchen: -$[AMOUNT] (25-35% reduction)
+Reduction for no bedroom walls: -$[AMOUNT] (15-25% reduction)
+Reduction for code violations: -$[AMOUNT] (10-20% reduction)
+
+FAIR RENTAL VALUE: $[REDUCED AMOUNT]/month
+
+Charging $[CURRENT RENT] for a unit worth only $[REDUCED AMOUNT] constitutes:
+- Breach of implied warranty of habitability
+- Violation of Minnesota Statute § 504B.161
+- Unjust enrichment
+- Potential fraud if violations were not disclosed
+
+DEMAND FOR RENT REDUCTION:
+
+Effective immediately, I demand a rent reduction from $[CURRENT RENT] to $[PROPOSED REDUCED RENT] per month until ALL code violations are corrected.
+
+This represents a [X]% reduction reflecting the diminished value of the unit.
+
+ALTERNATIVE: If you refuse to reduce rent, I demand that you:
+1. Immediately correct ALL code violations within [14] days
+2. Install proper kitchen facilities (stove, refrigerator, sink)
+3. Construct walls to create legal enclosed bedrooms with doors
+4. Install additional electrical outlets to meet code requirements
+5. Repair all other violations
+
+PRIOR NOTICE:
+
+I have previously notified you of these conditions on:
+- [DATE]: [Method of notice]
+- [DATE]: [Method of notice]
+
+Despite [NUMBER] notices over [NUMBER] days, you have failed to make repairs.
+
+LEGAL BASIS:
+
+Minnesota Statute § 504B.161 requires landlords to:
+- Comply with all applicable health, safety, and building codes
+- Keep premises fit for the use intended by the parties
+- Maintain habitable conditions
+
+Minnesota Statute § 504B.441 allows tenants to:
+- Withhold rent for uninhabitable conditions
+- Repair and deduct
+- Terminate lease without penalty
+- Recover damages for diminished rental value
+
+IMPLIED WARRANTY OF HABITABILITY:
+Minnesota law requires all rental units to be habitable. When landlords fail to maintain habitability, tenants are entitled to:
+- Reduced rent reflecting actual value
+- Damages for overpayment
+- Compensation for diminished use and enjoyment
+
+CONSEQUENCES OF REFUSING RENT REDUCTION:
+
+If you refuse this reasonable rent reduction demand, I will:
+
+1. WITHHOLD RENT and deposit it in escrow at reduced amount
+   - Pay only $[REDUCED AMOUNT]/month until repairs completed
+   - Deposit funds in separate account to show good faith
+
+2. REPAIR AND DEDUCT under Minn. Stat. § 504B.385
+   - Hire licensed contractors to correct violations
+   - Deduct actual costs from future rent payments
+
+3. FILE COMPLAINT WITH CITY BUILDING INSPECTOR
+   - Request emergency inspection
+   - Request citations and enforcement action
+   - Request condemnation if violations warrant
+
+4. TERMINATE LEASE without penalty under § 504B.441
+   - Vacate immediately due to uninhabitable conditions
+   - Demand full return of security deposit
+   - Seek damages for breach of warranty of habitability
+
+5. PURSUE LEGAL ACTION
+   - Sue for rent overpayment (reimbursement of excess rent paid)
+   - Sue for damages (diminished value over entire tenancy)
+   - Seek injunctive relief compelling repairs
+   - Recover attorney's fees and court costs
+
+6. CONTACT ATTORNEY GENERAL
+   - File complaint at (651) 296-3353
+   - Report potential fraud and deceptive practices
+
+COMPARISON TO COMPARABLE UNITS:
+
+Market research shows comparable units in [AREA] with:
+- Full kitchen facilities
+- Proper enclosed bedrooms
+- Code-compliant electrical systems
+- No habitability violations
+
+Rent for $[COMPARABLE RENT] - approximately [X]% LESS than what you are charging me for this substandard unit.
+
+RENT PAYMENT GOING FORWARD:
+
+Effective [DATE - typically 30 days from letter or next rent due date]:
+
+☐ OPTION 1: If you AGREE to rent reduction:
+I will pay reduced rent of $[REDUCED AMOUNT]/month until repairs completed.
+
+☐ OPTION 2: If you REFUSE rent reduction:
+I will withhold rent and deposit $[REDUCED AMOUNT]/month in escrow account until:
+- All code violations corrected
+- City inspector verifies compliance
+- Unit is habitable and worth original rent amount
+
+☐ OPTION 3: If you agree to IMMEDIATE REPAIRS:
+I will continue paying full rent IF you provide written commitment to complete ALL repairs within [14] days with detailed timeline.
+
+DEADLINE FOR RESPONSE:
+
+Respond in writing within 7 business days with:
+1. Acceptance of rent reduction to $[AMOUNT], OR
+2. Detailed repair plan with timeline and contractor information, OR
+3. Agreement to mutual lease termination without penalty
+
+GOOD FAITH OFFER:
+
+I am willing to work cooperatively if you:
+- Acknowledge the violations
+- Agree to fair rent reflecting actual value OR commit to immediate repairs
+- Provide written agreement and timeline
+
+However, I will not continue paying $[CURRENT RENT] for a unit that violates multiple codes and is worth significantly less.
+
+I have retained copies of this letter, all photographic evidence, inspection reports, and documentation for legal proceedings if necessary.
+
+Sincerely,
+
+[Your Signature]
+[Your Typed Name]
+
+CC: [City] Building Inspection Department
+    Minnesota Attorney General's Office
+    
+ENCLOSURES:
+☐ Photographs of violations
+☐ City inspection report
+☐ Market comparables research
+☐ Contractor estimates
+☐ Contractor estimates</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW TEMPLATE 12: Lease Compliance - Wrong Unit / Digital Signature -->
+    <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(12)">
+            <div>
+                <h3>Template 12: Demand for Lease Compliance - Correct Unit</h3>
+                <p><strong>Use when:</strong> Landlord tries to give you different unit than on signed lease, or disputes digital signature validity.</p>
+            </div>
+            <span class="template-toggle" id="toggle-12">▼</span>
+        </div>
+        <div class="template-content" id="content-12">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(12)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(12, 'Lease_Compliance_Demand')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-12">[Your Name]
+[Your Address]
+[City, State, ZIP Code]
+[Your Phone Number]
+[Your Email Address]
+[Date]
+
+[Landlord's Name]
+[Landlord's Company Name, if applicable]
+[Landlord's Address]
+[City, State, ZIP Code]
+
+RE: DEMAND FOR LEASE COMPLIANCE - Provision of Contracted Unit
+
+Dear [Landlord's Name],
+
+I am writing to demand that you comply with the legally binding lease agreement we executed on [DATE] and provide me with the specific rental unit identified in that agreement.
+
+LEASE AGREEMENT DETAILS:
+
+Lease Signed: [DATE]
+Lease Signed By: [YOUR NAME] and [LANDLORD NAME]
+Method of Signature: [Digital signature via DocuSign/Adobe Sign/Electronic/Wet signature]
+Unit Specified in Lease: [FULL ADDRESS INCLUDING UNIT NUMBER]
+Monthly Rent: $[AMOUNT]
+Square Footage Specified: [IF LISTED]
+Bedrooms: [NUMBER]
+Bathrooms: [NUMBER]
+Amenities Listed: [Kitchen/Parking/Laundry/Storage/Other features]
+
+BREACH OF LEASE AGREEMENT:
+
+You are attempting to breach our lease agreement by:
+
+[CHOOSE ONE OR MORE:]
+
+☐ WRONG UNIT: Attempting to place me in Unit [WRONG UNIT] instead of Unit [CORRECT UNIT] specified in the lease
+☐ DIFFERENT BUILDING: Attempting to place me in a different building at [WRONG ADDRESS]
+☐ SMALLER UNIT: Offering a unit that is [X]% smaller than the [SQUARE FEET] specified in lease
+☐ FEWER AMENITIES: Offering unit without [kitchen/parking/storage/other] that was promised in lease
+☐ LOWER QUALITY: Offering unit that is in worse condition than unit shown and agreed upon
+☐ DISPUTING LEASE VALIDITY: Claiming our digitally-signed lease is not valid or enforceable
+
+THE CORRECT UNIT SPECIFIED IN LEASE:
+
+Our lease clearly states:
+"Premises: [FULL ADDRESS AS WRITTEN IN LEASE]"
+
+I have PAID rent for: [ADDRESS FROM LEASE]
+You are legally obligated to provide: [ADDRESS FROM LEASE]
+You are attempting to substitute: [DIFFERENT ADDRESS/UNIT]
+
+This constitutes:
+- Breach of contract
+- Fraud and misrepresentation
+- Bait-and-switch tactics
+- Violation of Minnesota consumer protection laws
+
+LEGAL ENFORCEABILITY - DIGITAL SIGNATURES:
+
+[IF LEASE WAS DIGITALLY SIGNED:]
+
+You have suggested that our digitally-signed lease is not valid or enforceable. This is FALSE and contradicts Minnesota law.
+
+Under Minnesota Statutes § 325L.02 - UNIFORM ELECTRONIC TRANSACTIONS ACT (UETA):
+
+"A record or signature may not be denied legal effect or enforceability solely because it is in electronic form."
+
+"If a law requires a record to be in writing, an electronic record satisfies the law."
+
+"If a law requires a signature, an electronic signature satisfies the law."
+
+Additionally, the federal ESIGN Act (15 U.S.C. § 7001) states:
+
+"A signature, contract, or other record relating to such transaction may not be denied legal effect, validity, or enforceability solely because it is in electronic form."
+
+THEREFORE:
+
+✓ Our digital lease agreement IS legally binding
+✓ Electronic signatures have SAME legal effect as handwritten signatures
+✓ You CANNOT claim the lease is invalid because it was signed electronically
+✓ You CANNOT avoid your obligations under a digitally-signed lease
+
+Courts across Minnesota and nationwide have consistently upheld digital signatures and electronic contracts as valid and enforceable.
+
+PROOF OF LEASE AGREEMENT:
+
+I have retained the following evidence proving our lease agreement:
+
+☐ Original signed lease document (electronic copy with digital signatures)
+☐ Email confirmation of lease execution dated [DATE]
+☐ Receipt showing security deposit payment of $[AMOUNT] on [DATE]
+☐ Receipt showing first month's rent payment of $[AMOUNT] on [DATE]
+☐ Confirmation email referencing Unit [CORRECT UNIT]
+☐ Communications discussing the specific unit at [CORRECT ADDRESS]
+☐ Digital signature certificate/audit trail from [DocuSign/Adobe/Platform]
+☐ Screenshots of lease signing process
+☐ Bank statements showing payments for [CORRECT UNIT]
+
+PAYMENT MADE IN RELIANCE ON LEASE:
+
+I have already paid you:
+- Security Deposit: $[AMOUNT] paid on [DATE]
+- First Month's Rent: $[AMOUNT] paid on [DATE]
+- [Other fees]: $[AMOUNT] paid on [DATE]
+TOTAL PAID: $[TOTAL AMOUNT]
+
+These payments were made in reliance on receiving Unit [CORRECT UNIT] as specified in our lease agreement.
+
+DEMAND FOR COMPLIANCE:
+
+I demand that you IMMEDIATELY:
+
+1. HONOR THE LEASE AGREEMENT and provide me with Unit [CORRECT UNIT ADDRESS]
+2. PREPARE THE UNIT for occupancy by [MOVE-IN DATE]
+3. CONFIRM in writing that the correct unit will be provided
+4. APOLOGIZE for attempting to breach the lease
+5. PROVIDE keys and access to [CORRECT UNIT] on [DATE]
+
+I will NOT accept:
+- A different unit
+- A smaller unit
+- A unit with fewer amenities
+- A unit in worse condition
+- Any substitute that differs from our lease agreement
+
+LEGAL CONSEQUENCES OF NON-COMPLIANCE:
+
+If you refuse to provide the unit specified in our lease agreement, I will take the following actions:
+
+1. SPECIFIC PERFORMANCE LAWSUIT
+   - Sue to enforce the lease and compel you to provide the correct unit
+   - Courts have authority to order specific performance of lease agreements
+   - You will be required to provide the exact unit specified in the lease
+
+2. BREACH OF CONTRACT DAMAGES
+   - Sue for actual damages including:
+     * Difference in rent if substitute unit is inferior
+     * Moving and storage costs
+     * Hotel costs while seeking alternative housing
+     * Time and inconvenience
+     * Emotional distress
+   - Sue for punitive damages if breach was willful or fraudulent
+
+3. FRAUD AND MISREPRESENTATION
+   - If you intentionally misrepresented which unit would be provided
+   - If you had no intention of providing the correct unit when lease was signed
+   - Fraud carries additional penalties and damages
+
+4. LEASE TERMINATION AND FULL REFUND
+   - Terminate lease immediately without penalty
+   - Demand FULL REFUND of all payments:
+     * Security deposit: $[AMOUNT]
+     * Rent paid: $[AMOUNT]
+     * Fees paid: $[AMOUNT]
+     * TOTAL REFUND: $[TOTAL]
+   - You will be responsible for my costs of finding alternative housing
+
+5. CONTACT ATTORNEY GENERAL
+   - File complaint with Minnesota Attorney General: (651) 296-3353
+   - Report deceptive trade practices
+   - Report bait-and-switch tactics
+   - Request investigation and enforcement action
+
+6. PUBLIC RECORD AND REVIEWS
+   - Court records of breach of contract lawsuit are public
+   - I will post honest reviews on rental platforms
+   - Future tenants will be informed of your lease violations
+
+7. ATTORNEY'S FEES AND COSTS
+   - Under Minnesota law, if I prevail in breach of contract action, you may be required to pay my attorney's fees and court costs
+   - This could amount to thousands of dollars in addition to damages
+
+COMPARABLE LEASE CASES IN MINNESOTA:
+
+Minnesota courts have consistently held:
+- Lease agreements are binding contracts
+- Landlords must provide the specific unit identified in the lease
+- Attempting to substitute a different unit is breach of contract
+- Digital signatures are fully enforceable
+- Tenants are entitled to specific performance
+
+ALTERNATIVE RESOLUTION:
+
+If the unit specified in our lease is genuinely unavailable due to circumstances beyond your control (fire, condemnation, etc.), you must:
+
+1. PROVE the unit is unavailable (provide documentation)
+2. OFFER an EQUAL OR BETTER substitute unit at NO additional cost
+3. COMPENSATE me for any difference in value or inconvenience
+4. OBTAIN my written agreement to the substitution
+
+I am willing to consider an equal or superior substitute unit ONLY IF:
+- You provide clear documentation why original unit is unavailable
+- Substitute unit has equal or better features, size, and amenities
+- You compensate me for inconvenience ($[AMOUNT])
+- I inspect and approve the substitute unit
+- We execute a lease amendment in writing
+
+However, I have NO obligation to accept a substitute unit. Our lease specifies [CORRECT UNIT], and you are legally required to provide that unit.
+
+DIGITAL SIGNATURE VALIDITY - ADDITIONAL AUTHORITY:
+
+The following authorities confirm digital signatures are legally binding:
+
+1. Minnesota Statute § 325L.02 (UETA)
+2. Federal ESIGN Act, 15 U.S.C. § 7001
+3. Minnesota case law recognizing electronic signatures
+4. Nationwide adoption of digital signature technology in legal and business transactions
+
+DocuSign, Adobe Sign, and similar platforms are used by:
+- Fortune 500 companies
+- Law firms
+- Government agencies
+- Courts
+- Financial institutions
+
+If digital signatures were not valid, these entities would not use them. Your claim that our digitally-signed lease is invalid is without legal merit.
+
+TIMELINE FOR COMPLIANCE:
+
+You have 5 BUSINESS DAYS from receipt of this letter to:
+
+1. Confirm in writing that you will provide Unit [CORRECT UNIT]
+2. Provide move-in date and time
+3. Provide keys and access information
+
+If you do not comply within 5 business days, I will:
+- Terminate the lease immediately
+- Demand full refund of all payments within 3 business days
+- File lawsuit for breach of contract if refund not provided
+- Contact Minnesota Attorney General
+- Pursue all legal remedies
+
+CONFIRMATION REQUESTED:
+
+Respond in writing within 48 hours to:
+[Your Email]
+[Your Phone]
+
+Confirm:
+1. You will provide Unit [CORRECT UNIT] as specified in lease
+2. Move-in date and time
+3. Acknowledgment that our digital lease is valid and binding
+
+STATEMENT OF GOOD FAITH:
+
+I entered into this lease agreement in good faith, relying on your representations that Unit [CORRECT UNIT] would be provided. I have paid all required funds and am ready to move in as scheduled.
+
+I expect you to honor your legal obligations and comply with the lease agreement we both signed.
+
+Attempting to substitute a different unit is unacceptable and constitutes breach of contract. Provide the unit specified in the lease or face legal consequences.
+
+I have retained copies of all documentation and am prepared to enforce my rights in court if necessary.
+
+Sincerely,
+
+[Your Signature]
+[Your Typed Name]
+
+CC: Minnesota Attorney General's Office (if non-compliance)
+    
+ENCLOSURES:
+☐ Copy of signed lease agreement showing Unit [CORRECT UNIT]
+☐ Digital signature certificate/audit trail
+☐ Receipts for security deposit and rent payments
+☐ Email confirmations referencing correct unit
+☐ Any other supporting documentation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW TEMPLATE 13: Challenge Excessive Late Fees -->
+    <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(13)">
+            <div>
+                <h3>Template 13: Challenge to Excessive Late Fee</h3>
+                <p><strong>Use when:</strong> Landlord charges excessive late fees ($75 or similar unreasonable amounts) that exceed actual damages.</p>
+            </div>
+            <span class="template-toggle" id="toggle-13">▼</span>
+        </div>
+        <div class="template-content" id="content-13">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(13)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(13, 'Excessive_Late_Fee_Challenge')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-13">[Your Name]
+[Your Address]
+[City, State, ZIP Code]
+[Your Phone Number]
+[Your Email Address]
+[Date]
+
+[Landlord's Name]
+[Landlord's Company Name, if applicable]
+[Landlord's Address]
+[City, State, ZIP Code]
+
+RE: CHALLENGE TO EXCESSIVE AND UNENFORCEABLE LATE FEE
+
+Dear [Landlord's Name],
+
+I am writing to formally challenge the late fee of $[AMOUNT] that you are attempting to charge me, as this fee is excessive, unreasonable, and likely unenforceable under Minnesota law.
+
+RENT AND LATE FEE INFORMATION:
+
+Monthly Rent: $[RENT AMOUNT]
+Late Fee Charged: $[FEE AMOUNT - e.g., $75]
+Percentage of Rent: [CALCULATE: (FEE ÷ RENT) × 100]%
+Date Rent Was Due: [DATE]
+Date Rent Was Paid: [DATE]
+Days Late: [NUMBER] days
+
+LEGAL CHALLENGE - LATE FEE IS EXCESSIVE:
+
+Late fees must be REASONABLE and reflect the landlord's actual damages from late payment. Your late fee of $[AMOUNT] is EXCESSIVE and constitutes an unenforceable penalty under Minnesota law for the following reasons:
+
+1. DISPROPORTIONATE TO ACTUAL DAMAGES
+
+Minnesota law requires late fees to be reasonably related to the landlord's actual costs and damages from late rent. Courts have held that late fees that are grossly disproportionate to actual damages are unenforceable penalties.
+
+Your actual damages from [NUMBER] days of late rent are minimal:
+- Lost interest on $[RENT] for [NUMBER] days = approximately $[CALCULATE: (RENT × 0.05 ÷ 365) × DAYS] at 5% annual rate
+- Administrative costs for processing late payment = $[REASONABLE AMOUNT - typically $10-25]
+TOTAL ACTUAL DAMAGES: approximately $[TOTAL - typically under $30]
+
+Charging $[FEE AMOUNT] for actual damages of $[ACTUAL DAMAGES] is a markup of [CALCULATE PERCENTAGE]%. This is an unconscionable penalty, not a reasonable fee.
+
+2. PENALTY CLAUSE - UNENFORCEABLE
+
+Minnesota courts distinguish between:
+- LIQUIDATED DAMAGES: Reasonable estimate of actual harm - ENFORCEABLE
+- PENALTIES: Amounts grossly disproportionate to harm - UNENFORCEABLE
+
+Your $[FEE] late fee is clearly a PENALTY because:
+- It bears no relationship to your actual costs
+- It is designed to punish, not compensate
+- It is excessive compared to the minor inconvenience of late payment
+- It exceeds what any reasonable person would consider fair
+
+Minnesota law does not allow landlords to impose penalties on tenants. Late fees must be actual liquidated damages, not punitive charges.
+
+3. COMPARISON TO REASONABLE LATE FEES
+
+Reasonable late fees in Minnesota typically range from:
+- $25-$50 for most residential rentals
+- 5% of monthly rent (which would be $[CALCULATE 5%] in my case)
+- Actual administrative costs plus minimal interest
+
+Your late fee of $[AMOUNT] is:
+- [X]% of monthly rent (far exceeding typical 5%)
+- [X] times higher than reasonable $25-$35 range
+- [X] times higher than your actual damages
+
+This demonstrates the fee is punitive and excessive.
+
+4. UNCONSCIONABLE UNDER CONTRACT LAW
+
+A contract provision may be unconscionable and unenforceable if it is:
+- Substantively unconscionable: Terms are unreasonably favorable to one party
+- Procedurally unconscionable: Lack of meaningful choice or hidden terms
+
+Your late fee is substantively unconscionable because:
+- Tenant has no bargaining power over late fee terms
+- Fee is hidden in fine print of lease
+- Amount is shocking and oppressive
+- Far exceeds any reasonable estimate of damages
+
+Courts have authority to void unconscionable contract terms.
+
+5. VIOLATES CONSUMER PROTECTION PRINCIPLES
+
+Minnesota Statutes Chapter 325F prohibits deceptive trade practices, including:
+- Representing that a transaction has benefits that it does not have
+- Representing that the subject of a transaction has characteristics it does not have
+
+Characterizing a $[FEE] punitive charge as a "late fee" (implying it reflects actual damages) is potentially deceptive when the actual damages are less than $[ACTUAL].
+
+DEMAND TO WAIVE EXCESSIVE LATE FEE:
+
+I demand that you immediately:
+
+1. WAIVE the entire late fee of $[AMOUNT]
+2. CONFIRM in writing that the late fee will not be charged
+3. NOT report this late payment to credit bureaus or tenant screening services
+4. ACCEPT my rent payment of $[RENT AMOUNT] without additional fees
+
+ALTERNATIVE: REASONABLE LATE FEE
+
+If you insist on charging a late fee, I am willing to pay a REASONABLE fee that reflects your actual damages:
+
+- Reasonable late fee: $[AMOUNT - e.g., $25] OR
+- 5% of rent: $[CALCULATE 5% OF RENT]
+
+This amount compensates you for actual administrative costs and interest, which is all Minnesota law allows.
+
+I will NOT pay an excessive $[EXCESSIVE AMOUNT] penalty that has no basis in actual damages.
+
+CONSEQUENCES OF INSISTING ON EXCESSIVE FEE:
+
+If you insist on charging this excessive and unenforceable late fee, I will:
+
+1. REFUSE TO PAY THE EXCESSIVE PORTION
+   - Pay rent: $[RENT]
+   - Pay reasonable late fee: $[REASONABLE AMOUNT]
+   - REFUSE to pay excessive penalty: $[EXCESSIVE PORTION]
+
+2. CHALLENGE IN COURT IF YOU FILE EVICTION
+   - Assert unconscionability defense
+   - Present evidence that fee is punitive penalty
+   - Request court void the excessive fee
+   - Seek attorney's fees if you wrongfully attempt eviction
+
+3. FILE COMPLAINT WITH ATTORNEY GENERAL
+   - Report excessive late fees as deceptive practice
+   - Phone: (651) 296-3353
+   - Provide evidence of unreasonable fees
+
+4. CONTACT LOCAL TENANT ADVOCACY ORGANIZATIONS
+   - HOME Line: (612) 728-5767
+   - Report abusive late fee practices
+   - Seek legal representation if needed
+
+5. PUBLIC DISCLOSURE
+   - Post honest reviews warning future tenants
+   - Report excessive fees to rental platforms
+   - Inform other tenants of their rights
+
+6. COUNTERCLAIM IF YOU SUE
+   - Counterclaim for return of any excessive fees previously paid
+   - Seek declaratory judgment that late fee clause is unenforceable
+   - Request damages for harassment and attempted collection of invalid debt
+
+CASE LAW AND AUTHORITY:
+
+Minnesota courts have held:
+- Late fees must be reasonable and reflect actual damages
+- Fees that are penalties are unenforceable
+- Courts will not enforce unconscionable contract terms
+- Landlords cannot disguise penalties as "fees"
+
+See:
+- Lake Calhoun Condominium Ass'n v. Holzheimer (stating liquidated damages must be reasonable)
+- Minnesota common law on unconscionability
+- Minnesota Statutes Chapter 325F (deceptive trade practices)
+
+LEASE AMENDMENT REQUEST:
+
+Going forward, I request that we amend the lease to reflect a REASONABLE late fee of:
+- $[AMOUNT] flat fee (e.g., $25-$35), OR
+- 5% of monthly rent, OR
+- Actual administrative costs not to exceed $[AMOUNT]
+
+This protects both parties: I have an incentive to pay on time, and you are compensated for actual costs without imposing an unlawful penalty.
+
+PAYMENT ENCLOSED:
+
+Enclosed is my payment for:
+- Monthly rent: $[RENT AMOUNT]
+- Reasonable late fee: $[REASONABLE AMOUNT if willing to pay]
+TOTAL: $[TOTAL]
+
+This payment is made IN FULL SATISFACTION of all amounts owed for [MONTH] rent.
+
+By accepting this payment, you agree that all amounts for [MONTH] are paid in full and waive any claim to additional late fees.
+
+GOOD FAITH EXPLANATION:
+
+I acknowledge that my rent was [NUMBER] days late. This was due to [BRIEF EXPLANATION if you choose to provide one]:
+
+☐ Payroll delay
+☐ Bank processing delay
+☐ Mail delay
+☐ Financial hardship
+☐ Other: [EXPLAIN]
+
+I did not intentionally withhold rent. I paid as soon as I was able. A $[EXCESSIVE AMOUNT] punitive fee is unjustified and disproportionate to any inconvenience caused.
+
+FUTURE RENT PAYMENTS:
+
+Going forward, I intend to pay rent on time. However, I will not accept excessive punitive late fees that violate Minnesota law.
+
+If I am ever late in the future, I expect:
+- Reasonable notice and opportunity to pay
+- Reasonable late fee (not to exceed $[AMOUNT] or 5% of rent)
+- No threats or harassment
+- No retaliation
+
+CONFIRMATION REQUESTED:
+
+Please confirm in writing within 5 business days that:
+1. You waive the $[EXCESSIVE AMOUNT] late fee
+2. You accept $[REASONABLE AMOUNT] as full satisfaction for [MONTH]
+3. Going forward, late fees will be reasonable and not exceed [AMOUNT/PERCENTAGE]
+
+If you insist on the excessive fee, please provide:
+1. Itemized breakdown of your actual damages
+2. Legal authority supporting $[AMOUNT] fee
+3. Explanation of how fee reflects actual costs
+
+CONCLUSION:
+
+I am willing to pay a reasonable late fee that reflects your actual damages. I am NOT willing to pay an excessive penalty that has no basis in law or fact.
+
+Accept my payment of $[RENT + REASONABLE FEE] as full satisfaction, or face legal challenges to your unenforceable penalty clause.
+
+Minnesota law is clear: late fees must be reasonable. Your $[EXCESSIVE] fee is not.
+
+I have retained copies of this letter, lease agreement, and all payment records for potential legal proceedings.
+
+Sincerely,
+
+[Your Signature]
+[Your Typed Name]
+
+ENCLOSURES:
+☐ Payment (check/money order) for $[RENT + REASONABLE FEE]
+☐ Copy of lease showing late fee clause
+☐ Calculation of actual damages vs. charged fee</div>
+            </div>
+        </div>
+    </div>
+
+</div>                    
 </div>
 <div id="copyNotification" class="copy-notification"></div>
 </div>
-        
 
+    <div id="landlord-communication" class="page">
+    <div class="page-header">
+    <h1>📞 Communicating With Your Landlord</h1>
+    <p class="subtitle">How to effectively communicate with your landlord, document everything, and protect your rights</p>
+</div>
+
+<div class="container">
+
+    <div class="content-section">
+        <h2>Why Proper Communication Matters</h2>
+        <p>Effective communication with your landlord is crucial for maintaining your rights, resolving issues, and building a paper trail if legal action becomes necessary. Under Minnesota law, HOW you communicate can be just as important as WHAT you communicate.</p>
+        
+        <div class="info-box important">
+            <h4>🔴 Critical Rule: ALWAYS DOCUMENT EVERYTHING</h4>
+            <p>Every communication with your landlord should be documented. This creates a legal paper trail that can protect you in disputes, eviction proceedings, or lawsuits.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Best Communication Methods</h2>
+        
+        <div class="contact-methods">
+            <div class="contact-card">
+                <h4>✉️ Email (BEST)</h4>
+                <p>Email is the most effective method for tenant-landlord communication.</p>
+                <p class="pros"><strong>Pros:</strong></p>
+                <ul>
+                    <li>Automatic timestamp and date</li>
+                    <li>Written record you can save</li>
+                    <li>Can attach photos/documents</li>
+                    <li>Easy to search and organize</li>
+                    <li>Can be used as evidence in court</li>
+                </ul>
+                <p class="cons"><strong>Tips:</strong></p>
+                <ul>
+                    <li>Keep subject lines clear and specific</li>
+                    <li>BCC yourself for backup</li>
+                    <li>Save all sent and received emails</li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h4>📝 Certified Mail (BEST FOR LEGAL NOTICES)</h4>
+                <p>Use for serious issues and legal notices.</p>
+                <p class="pros"><strong>Pros:</strong></p>
+                <ul>
+                    <li>Proof of delivery (return receipt)</li>
+                    <li>Cannot be denied by landlord</li>
+                    <li>Required for some legal notices</li>
+                    <li>Shows seriousness of issue</li>
+                    <li>Strong evidence in court</li>
+                </ul>
+                <p class="cons"><strong>When to Use:</strong></p>
+                <ul>
+                    <li>Legal demands and notices</li>
+                    <li>Repair requests after landlord ignores email</li>
+                    <li>Lease termination notices</li>
+                    <li>Formal complaints</li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h4>📱 Text Message (GOOD)</h4>
+                <p>Acceptable for routine matters, but has limitations.</p>
+                <p class="pros"><strong>Pros:</strong></p>
+                <ul>
+                    <li>Quick and convenient</li>
+                    <li>Timestamped</li>
+                    <li>Can screenshot for records</li>
+                    <li>Good for urgent matters</li>
+                </ul>
+                <p class="cons"><strong>Cons:</strong></p>
+                <ul>
+                    <li>Easy to lose or delete</li>
+                    <li>Character limits</li>
+                    <li>Less formal</li>
+                    <li>Harder to attach documents</li>
+                </ul>
+                <p class="cons"><strong>Important:</strong> Always screenshot and save text conversations!</p>
+            </div>
+
+            <div class="contact-card">
+                <h4>📞 Phone Call (AVOID IF POSSIBLE)</h4>
+                <p>Phone calls leave NO paper trail.</p>
+                <p class="cons"><strong>Problems:</strong></p>
+                <ul>
+                    <li>No written record</li>
+                    <li>"He said, she said" disputes</li>
+                    <li>Landlord can deny conversation</li>
+                    <li>You can't prove what was said</li>
+                    <li>Cannot be used as evidence</li>
+                </ul>
+                <p class="cons"><strong>If You Must Call:</strong></p>
+                <ul>
+                    <li>Follow up immediately with email summarizing the call</li>
+                    <li>Note date, time, and what was discussed</li>
+                    <li>Ask landlord to confirm via email</li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h4>🚫 In-Person (AVOID FOR IMPORTANT MATTERS)</h4>
+                <p>Face-to-face has same problems as phone calls.</p>
+                <p class="cons"><strong>Problems:</strong></p>
+                <ul>
+                    <li>No paper trail</li>
+                    <li>Easy for landlord to deny</li>
+                    <li>No timestamp or proof</li>
+                    <li>Witnesses rarely available</li>
+                </ul>
+                <p class="cons"><strong>If You Must Meet:</strong></p>
+                <ul>
+                    <li>Bring a witness</li>
+                    <li>Take notes during meeting</li>
+                    <li>Send follow-up email immediately</li>
+                    <li>Summarize what was agreed upon</li>
+                </ul>
+            </div>
+
+            <div class="contact-card">
+                <h4>🎥 Portal/App Messages (GOOD)</h4>
+                <p>If your landlord uses a tenant portal.</p>
+                <p class="pros"><strong>Pros:</strong></p>
+                <ul>
+                    <li>Automatic documentation</li>
+                    <li>Timestamp and date</li>
+                    <li>Can attach photos</li>
+                    <li>Trackable</li>
+                </ul>
+                <p class="cons"><strong>Important:</strong></p>
+                <ul>
+                    <li>Take screenshots of all messages</li>
+                    <li>Save copies outside the portal</li>
+                    <li>Portal may delete old messages</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>📋 What to Include in ALL Communications</h2>
+        
+        <ul class="checklist">
+            <li><strong>Date:</strong> Always include the current date</li>
+            <li><strong>Your Full Name:</strong> As it appears on the lease</li>
+            <li><strong>Your Address:</strong> Full address including unit number</li>
+            <li><strong>Subject/Topic:</strong> Clear description of the issue</li>
+            <li><strong>Specific Details:</strong> Be detailed and factual</li>
+            <li><strong>Action Requested:</strong> What you want the landlord to do</li>
+            <li><strong>Timeline:</strong> Reasonable deadline for response/action</li>
+            <li><strong>Reference to Prior Communications:</strong> If applicable</li>
+            <li><strong>Legal References:</strong> Cite Minnesota statutes when relevant</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>✅ DOs and ❌ DON'Ts of Landlord Communication</h2>
+        
+        <div class="dos-donts">
+            <div class="do-column">
+                <h4>✅ DO:</h4>
+                <ul>
+                    <li>Be professional and courteous</li>
+                    <li>Use clear, specific language</li>
+                    <li>State facts, not opinions</li>
+                    <li>Include dates, times, locations</li>
+                    <li>Attach photos as evidence</li>
+                    <li>Reference specific lease clauses</li>
+                    <li>Cite Minnesota statutes</li>
+                    <li>Give reasonable deadlines</li>
+                    <li>Keep copies of everything</li>
+                    <li>Follow up in writing after calls</li>
+                    <li>Be persistent but polite</li>
+                    <li>Document every interaction</li>
+                </ul>
+            </div>
+            
+            <div class="dont-column">
+                <h4>❌ DON'T:</h4>
+                <ul>
+                    <li>Use profanity or insults</li>
+                    <li>Make threats or ultimatums</li>
+                    <li>Be vague or unclear</li>
+                    <li>Rely on phone calls only</li>
+                    <li>Forget to follow up</li>
+                    <li>Accept verbal promises</li>
+                    <li>Delete messages or emails</li>
+                    <li>Communicate when angry</li>
+                    <li>Make personal attacks</li>
+                    <li>Exaggerate or lie</li>
+                    <li>Give up after one try</li>
+                    <li>Assume landlord will "just know"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>📧 Email Templates and Examples</h2>
+        
+        <h3>Example 1: Repair Request</h3>
+        <div class="example-box">
+            <h5>Subject: URGENT Repair Request - No Heat in Unit 4B</h5>
+            <p>
+Dear [Landlord Name],
+
+I am writing to formally request an emergency repair at my rental unit.
+
+TENANT INFORMATION:
+Name: Jane Smith
+Address: 123 Main St, Unit 4B, Minneapolis, MN 55401
+Lease Start Date: January 1, 2024
+
+ISSUE:
+The heating system in my unit has been non-functional since December 3, 2024. The current indoor temperature is 55°F, and outdoor temperatures are below freezing.
+
+PRIOR NOTICE:
+I first notified you of this issue via text message on December 3 at 10:30 AM. You stated you would "look into it," but no action has been taken.
+
+LEGAL REQUIREMENT:
+Under Minnesota Statute § 504B.161, landlords must maintain heating systems in good working order. Minnesota requires landlords to provide heat capable of maintaining at least 68°F during heating season.
+
+REQUEST:
+I request that you arrange for a licensed HVAC technician to repair the heating system within 24 hours.
+
+If repairs are not made within 24 hours, I will:
+1. Report this to Minneapolis Building Inspection
+2. Exercise my rights under Minn. Stat. § 504B.441 (repair and deduct)
+3. Seek temporary housing and deduct costs from rent
+
+I have attached photos showing the thermostat reading and non-functioning furnace.
+
+Please confirm receipt of this email and provide a repair timeline.
+
+Sincerely,
+Jane Smith
+(612) 555-1234
+            </p>
+        </div>
+
+        <h3>Example 2: Following Up After Phone Call</h3>
+        <div class="example-box">
+            <h5>Subject: Confirming Our Phone Conversation - Lease Renewal</h5>
+            <p>
+Dear [Landlord Name],
+
+This email confirms our phone conversation today, December 7, 2024, at approximately 2:00 PM.
+
+DISCUSSION SUMMARY:
+1. You stated that my lease will be renewed for another year
+2. Rent will remain $900/month (no increase)
+3. New lease will begin February 1, 2025
+4. You will email me the new lease by December 15, 2024
+
+CONFIRMATION REQUESTED:
+Please reply to this email confirming that the above accurately reflects our conversation. If any details are incorrect, please clarify in writing.
+
+I will wait to receive the new lease document by December 15 as discussed.
+
+Thank you,
+Jane Smith
+            </p>
+        </div>
+
+        <h3>Example 3: Documenting Verbal Promise</h3>
+        <div class="example-box">
+            <h5>Subject: Confirming Agreement to Repair Kitchen Sink</h5>
+            <p>
+Dear [Landlord Name],
+
+During our in-person meeting on December 5, 2024, you verbally agreed to repair the leaking kitchen sink in my unit.
+
+This email confirms:
+- You acknowledged the sink has been leaking for 2 weeks
+- You agreed to hire a plumber
+- You stated repairs would be completed by December 10, 2024
+- You would call me 24 hours before plumber arrives
+
+Please confirm this agreement in writing. If I do not hear from you by December 10, I will assume you are not honoring this agreement and will proceed with repair and deduct under Minnesota law.
+
+Thank you,
+Jane Smith
+            </p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>⚠️ Special Situations</h2>
+        
+        <h3>When Landlord Ignores Your Communications</h3>
+        <div class="info-box warning">
+            <h4>Escalation Strategy:</h4>
+            <ol>
+                <li><strong>First Contact:</strong> Email or portal message</li>
+                <li><strong>After 3-5 Days:</strong> Second email with "SECOND REQUEST" in subject</li>
+                <li><strong>After 7-10 Days:</strong> Certified mail with return receipt</li>
+                <li><strong>After 14 Days:</strong> File complaint with city building inspector</li>
+                <li><strong>After 21 Days:</strong> Contact Minnesota Attorney General or consult attorney</li>
+            </ol>
+        </div>
+
+        <h3>When Landlord Prefers Phone Calls</h3>
+        <div class="info-box">
+            <p>If your landlord insists on phone communication:</p>
+            <ul>
+                <li>Politely explain you prefer written communication for documentation</li>
+                <li>If you must call, ALWAYS send follow-up email immediately</li>
+                <li>In email, write: "This confirms our phone call on [DATE] at [TIME]..."</li>
+                <li>List everything discussed in detail</li>
+                <li>Ask landlord to confirm via email</li>
+            </ul>
+        </div>
+
+        <h3>Emergency Situations</h3>
+        <div class="info-box important">
+            <h4>For TRUE emergencies (gas leak, fire, flooding, no heat in winter):</h4>
+            <ol>
+                <li><strong>Call 911</strong> if immediate danger</li>
+                <li><strong>Call landlord immediately</strong></li>
+                <li><strong>Send follow-up email/text SAME DAY</strong> documenting:
+                    <ul>
+                        <li>What the emergency was</li>
+                        <li>When you called landlord</li>
+                        <li>What landlord said</li>
+                        <li>What action was taken</li>
+                    </ul>
+                </li>
+                <li><strong>Take photos/videos</strong> of the emergency</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>📂 Organizing Your Documentation</h2>
+        
+        <div class="info-box">
+            <h4>Create a Landlord Communication File:</h4>
+            <ul class="checklist">
+                <li>Keep all emails in a dedicated folder</li>
+                <li>Save text message screenshots in organized files (by date)</li>
+                <li>Scan and save all certified mail receipts</li>
+                <li>Keep a log/spreadsheet of all communications:
+                    <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                        <li>Date</li>
+                        <li>Method (email/text/call/in-person)</li>
+                        <li>Topic/Issue</li>
+                        <li>Landlord's response</li>
+                        <li>Follow-up needed?</li>
+                    </ul>
+                </li>
+                <li>Back up everything to cloud storage (Google Drive, Dropbox)</li>
+                <li>Print important communications and keep paper copies</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>🎯 Communication Tips by Situation</h2>
+        
+        <h3>Requesting Repairs</h3>
+        <ul>
+            <li>Be specific about the problem (not "toilet broken" but "toilet continuously running, wasting water")</li>
+            <li>State when problem started</li>
+            <li>Explain how it affects your use of the unit</li>
+            <li>Cite relevant Minnesota statute if applicable</li>
+            <li>Give reasonable deadline (24 hours for emergency, 14 days for non-emergency)</li>
+            <li>Attach photos showing the problem</li>
+        </ul>
+
+        <h3>Complaining About Noise/Neighbor Issues</h3>
+        <ul>
+            <li>Document dates, times, duration of disturbances</li>
+            <li>Describe specific sounds/behaviors</li>
+            <li>Note impact on your quiet enjoyment</li>
+            <li>Reference lease quiet hours clause</li>
+            <li>Ask landlord to take specific action</li>
+            <li>Consider recording audio/video if legal in your situation</li>
+        </ul>
+
+        <h3>Disputing Charges or Fees</h3>
+        <ul>
+            <li>Reference lease clause if applicable</li>
+            <li>Cite Minnesota statute prohibiting improper charges</li>
+            <li>Request itemized breakdown</li>
+            <li>Provide evidence charges are improper</li>
+            <li>State clearly you dispute and will not pay</li>
+            <li>Reference legal consequences of illegal fees</li>
+        </ul>
+
+        <h3>Requesting Accommodation (Disability)</h3>
+        <ul>
+            <li>Use "Reasonable Accommodation Request" in subject line</li>
+            <li>State you have a disability (don't need to specify)</li>
+            <li>Explain accommodation needed</li>
+            <li>Cite Fair Housing Act and ADA</li>
+            <li>Offer to provide medical documentation if needed</li>
+            <li>Give landlord 10 days to respond</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>⚖️ Legal Protections</h2>
+        
+        <div class="info-box important">
+            <h4>Minnesota Statute § 504B.285 - Retaliation Protection</h4>
+            <p>Landlords CANNOT retaliate against you for:</p>
+            <ul>
+                <li>Complaining to landlord about violations</li>
+                <li>Reporting code violations to government authorities</li>
+                <li>Organizing with other tenants</li>
+                <li>Exercising your legal rights</li>
+            </ul>
+            <p><strong>If landlord retaliates within 90 days,</strong> the law PRESUMES it's illegal retaliation.</p>
+        </div>
+
+        <div class="info-box">
+            <h4>Your Communication Rights:</h4>
+            <ul class="checklist">
+                <li>You have the RIGHT to communicate with your landlord</li>
+                <li>You have the RIGHT to request repairs in writing</li>
+                <li>You have the RIGHT to document everything</li>
+                <li>You have the RIGHT to receive responses to reasonable requests</li>
+                <li>You have the RIGHT to file complaints with authorities</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>📞 When to Get Help</h2>
+        
+        <p><strong>Contact these resources if:</strong></p>
+        <ul>
+            <li>Landlord completely ignores your communications</li>
+            <li>Landlord threatens or harasses you</li>
+            <li>You're facing eviction</li>
+            <li>Landlord retaliates against you</li>
+            <li>You need help drafting formal legal notices</li>
+        </ul>
+
+        <div class="info-box">
+            <h4>Resources:</h4>
+            <ul>
+                <li><strong>HOME Line Tenant Hotline:</strong> (612) 728-5767</li>
+                <li><strong>Minnesota Attorney General:</strong> (651) 296-3353</li>
+                <li><strong>Legal Aid:</strong> www.mylegalaid.org</li>
+                <li><strong>Local Housing Inspector:</strong> Contact your city</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>📝 Final Tips</h2>
+        
+        <div class="info-box">
+            <ul class="checklist">
+                <li><strong>Document EVERYTHING:</strong> If it's not in writing, it didn't happen</li>
+                <li><strong>Be Professional:</strong> Even when frustrated, stay calm and factual</li>
+                <li><strong>Be Persistent:</strong> Don't give up after one email</li>
+                <li><strong>Know Your Rights:</strong> Cite Minnesota statutes when relevant</li>
+                <li><strong>Keep Backups:</strong> Save copies in multiple locations</li>
+                <li><strong>Act Quickly:</strong> Don't wait weeks to report problems</li>
+                <li><strong>Follow Through:</strong> If landlord doesn't respond, escalate</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 2rem; padding: 1rem; background: rgba(77, 184, 172, 0.2); border-radius: 8px; text-align: center;">
+            <strong>Remember:</strong> Good documentation and proper communication are your best defense in landlord-tenant disputes. When in doubt, put it in writing!
+        </p>
+    </div>
+
+</div>
+<div id="security-cameras" class="page">
+<div class="page-header">
+    <h1>📹 Security Cameras & Surveillance</h1>
+    <p class="subtitle">Know your rights: What landlords CAN and CANNOT do with cameras and surveillance in rental units</p>
+</div>
+
+<div class="container">
+
+    <div class="content-section">
+        <h2>🔴 The Bottom Line</h2>
+        
+        <div class="legal-box">
+            <h4>ILLEGAL: Cameras in Private Areas</h4>
+            <p><strong>It is a CRIME in Minnesota for landlords to install cameras or recording devices in areas where tenants have a reasonable expectation of privacy.</strong></p>
+            <ul style="margin-top: 1rem;">
+                <li>Bathrooms</li>
+                <li>Bedrooms</li>
+                <li>Inside rental units (except common areas in shared housing)</li>
+                <li>Any area where tenant would reasonably expect privacy</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Criminal Penalty:</strong> Minnesota Statute § 609.746 - Gross misdemeanor punishable by up to 1 year in jail and/or $3,000 fine</p>
+        </div>
+
+        <div class="allowed-box">
+            <h4>LEGAL: Cameras in Public/Common Areas</h4>
+            <p>Landlords MAY install cameras in:</p>
+            <ul>
+                <li>Building entrances/exits</li>
+                <li>Hallways and corridors</li>
+                <li>Parking lots and garages</li>
+                <li>Laundry rooms</li>
+                <li>Shared outdoor spaces</li>
+                <li>Lobbies and mail areas</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Requirement:</strong> Must notify tenants that surveillance is in use</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>⚖️ Minnesota Law on Surveillance</h2>
+        
+        <h3>Minnesota Statute § 609.746 - Interference with Privacy</h3>
+        <div class="legal-box">
+            <p><strong>The law states:</strong></p>
+            <blockquote style="margin: 1rem 0; padding-left: 1rem; border-left: 3px solid #d66a6a;">
+                "A person is guilty of a gross misdemeanor who:
+                <br><br>
+                (1) enters upon another's property;
+                <br>
+                (2) surreptitiously gazes, stares, or peeps in the window or any other aperture of a house or place of dwelling of another; and
+                <br>
+                (3) does so with intent to intrude upon or interfere with the privacy of a member of the household.
+                <br><br>
+                ...or surreptitiously installs or uses any device for observing, photographing, recording, amplifying, or broadcasting sounds or events through the window or any other aperture of such house or place."
+            </blockquote>
+        </div>
+
+        <h3>What This Means for Tenants</h3>
+        <p>Under Minnesota law:</p>
+        <ul>
+            <li>Your rental unit is YOUR "place of dwelling"</li>
+            <li>You have a reasonable expectation of privacy inside your unit</li>
+            <li>Landlords cannot secretly install cameras to watch or record you</li>
+            <li>Audio recording is also covered (cannot record conversations)</li>
+            <li>Both video AND audio surveillance of private areas is illegal</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>📍 Where Cameras Are ILLEGAL vs. LEGAL</h2>
+        
+        <div class="location-grid">
+            <div class="location-card illegal">
+                <h4>🔴 ILLEGAL - NEVER ALLOWED</h4>
+                <p><strong>Bathrooms</strong></p>
+                <p>Cameras in bathrooms are ALWAYS illegal, even if disclosed. This includes:</p>
+                <ul>
+                    <li>Toilets</li>
+                    <li>Showers/bathtubs</li>
+                    <li>Changing areas</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #d66a6a;"><strong>Penalty:</strong> Criminal charges, immediate eviction of landlord's access, lawsuit</p>
+            </div>
+
+            <div class="location-card illegal">
+                <h4>🔴 ILLEGAL - NEVER ALLOWED</h4>
+                <p><strong>Bedrooms</strong></p>
+                <p>Bedrooms are private areas where cameras cannot be installed:</p>
+                <ul>
+                    <li>Master bedrooms</li>
+                    <li>Guest bedrooms</li>
+                    <li>Children's rooms</li>
+                    <li>Any sleeping area</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #d66a6a;"><strong>Exception:</strong> None. Always illegal.</p>
+            </div>
+
+            <div class="location-card illegal">
+                <h4>🔴 ILLEGAL - WITHOUT CONSENT</h4>
+                <p><strong>Inside Your Unit</strong></p>
+                <p>Living rooms, kitchens, and other interior spaces are private:</p>
+                <ul>
+                    <li>Living/family rooms</li>
+                    <li>Kitchens and dining areas</li>
+                    <li>Home offices</li>
+                    <li>Private balconies/patios</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #d66a6a;"><strong>Note:</strong> Even with disclosure, tenant must consent</p>
+            </div>
+
+            <div class="location-card caution">
+                <h4>⚠️ CAUTION - GREY AREA</h4>
+                <p><strong>Shared Housing Common Areas</strong></p>
+                <p>In rooming houses or shared apartments:</p>
+                <ul>
+                    <li>Shared living rooms</li>
+                    <li>Shared kitchens</li>
+                    <li>Common hallways inside unit</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #e8a44c;"><strong>Rule:</strong> Must be disclosed and ALL tenants must consent</p>
+            </div>
+
+            <div class="location-card legal">
+                <h4>✅ LEGAL - WITH DISCLOSURE</h4>
+                <p><strong>Building Common Areas</strong></p>
+                <p>Public spaces in multi-unit buildings:</p>
+                <ul>
+                    <li>Building entrances/exits</li>
+                    <li>Hallways and stairwells</li>
+                    <li>Elevators</li>
+                    <li>Mail/package areas</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #4db8ac;"><strong>Requirement:</strong> Signage notifying of surveillance</p>
+            </div>
+
+            <div class="location-card legal">
+                <h4>✅ LEGAL - WITH DISCLOSURE</h4>
+                <p><strong>Exterior Areas</strong></p>
+                <p>Outdoor and parking areas:</p>
+                <ul>
+                    <li>Parking lots/garages</li>
+                    <li>Building exterior</li>
+                    <li>Shared yards/grounds</li>
+                    <li>Dumpster/storage areas</li>
+                </ul>
+                <p style="margin-top: 0.5rem; color: #4db8ac;"><strong>Purpose:</strong> Security and property protection</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>🚨 What To Do If You Find a Hidden Camera</h2>
+        
+        <div class="action-steps">
+            <h4>IMMEDIATE ACTIONS:</h4>
+            <ol>
+                <li><strong>DO NOT TOUCH OR REMOVE the camera</strong>
+                    <ul>
+                        <li>It is evidence of a crime</li>
+                        <li>Tampering could affect criminal prosecution</li>
+                        <li>Take photos/video of camera in place</li>
+                    </ul>
+                </li>
+                
+                <li><strong>DOCUMENT EVERYTHING</strong>
+                    <ul>
+                        <li>Photograph camera from multiple angles</li>
+                        <li>Note exact location</li>
+                        <li>Record date and time of discovery</li>
+                        <li>Note if camera has recording light or indicators</li>
+                    </ul>
+                </li>
+                
+                <li><strong>CALL POLICE IMMEDIATELY</strong>
+                    <ul>
+                        <li>Dial 911 or non-emergency police number</li>
+                        <li>Report illegal surveillance under Minn. Stat. § 609.746</li>
+                        <li>Request police come to document evidence</li>
+                        <li>Get police report number</li>
+                    </ul>
+                </li>
+                
+                <li><strong>PROTECT YOUR PRIVACY</strong>
+                    <ul>
+                        <li>Cover camera with towel or cloth (don't remove)</li>
+                        <li>Assume camera may be recording audio too</li>
+                        <li>Consider staying elsewhere until police arrive</li>
+                        <li>Check for additional hidden cameras</li>
+                    </ul>
+                </li>
+                
+                <li><strong>CONTACT AUTHORITIES</strong>
+                    <ul>
+                        <li>Minnesota Attorney General: (651) 296-3353</li>
+                        <li>File complaint for criminal invasion of privacy</li>
+                        <li>Report to local housing inspector</li>
+                        <li>Contact HOME Line: (612) 728-5767</li>
+                    </ul>
+                </li>
+                
+                <li><strong>CONSULT AN ATTORNEY</strong>
+                    <ul>
+                        <li>You may have grounds for immediate lease termination</li>
+                        <li>Lawsuit for invasion of privacy</li>
+                        <li>Damages for emotional distress</li>
+                        <li>Punitive damages for willful violation</li>
+                    </ul>
+                </li>
+                
+                <li><strong>DO NOT CONFRONT LANDLORD YET</strong>
+                    <ul>
+                        <li>Wait for police to investigate</li>
+                        <li>Landlord may destroy evidence if warned</li>
+                        <li>Let authorities handle criminal investigation</li>
+                        <li>Your attorney will handle civil claims</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>🔍 How to Detect Hidden Cameras</h2>
+        
+        <h3>Common Hiding Spots:</h3>
+        <ul>
+            <li><strong>Smoke Detectors:</strong> Fake or modified smoke detectors with camera lens</li>
+            <li><strong>Clocks:</strong> Alarm clocks or wall clocks with hidden cameras</li>
+            <li><strong>Air Vents:</strong> Cameras positioned behind vent grills</li>
+            <li><strong>Light Fixtures:</strong> Cameras in ceiling lights or lamps</li>
+            <li><strong>Electrical Outlets:</strong> Fake outlets with camera holes</li>
+            <li><strong>Picture Frames:</strong> Cameras hidden behind glass or in frame</li>
+            <li><strong>Decorative Items:</strong> Plants, books, tissue boxes with hidden cameras</li>
+            <li><strong>TV/Electronics:</strong> Cameras hidden in or near TV, cable box, router</li>
+        </ul>
+
+        <h3>Detection Methods:</h3>
+        <div class="scenario-box">
+            <h5>1. Visual Inspection</h5>
+            <ul>
+                <li>Look for small holes or lens reflections</li>
+                <li>Check for unusual wires or cables</li>
+                <li>Notice items that seem out of place or new</li>
+                <li>Look for blinking LED lights (recording indicators)</li>
+            </ul>
+        </div>
+
+        <div class="scenario-box">
+            <h5>2. Use Your Phone Camera</h5>
+            <ul>
+                <li>Turn off lights in room</li>
+                <li>Use phone camera to scan room</li>
+                <li>Hidden camera infrared LEDs will show up as bright spots on your phone screen</li>
+                <li>Look carefully around suspicious areas</li>
+            </ul>
+        </div>
+
+        <div class="scenario-box">
+            <h5>3. Check for Radio Frequencies</h5>
+            <ul>
+                <li>Use RF (radio frequency) detector app or device</li>
+                <li>Wireless cameras emit radio signals</li>
+                <li>Scan areas where you suspect cameras</li>
+                <li>Note: Not all cameras use wireless signals</li>
+            </ul>
+        </div>
+
+        <div class="scenario-box">
+            <h5>4. Professional Inspection</h5>
+            <ul>
+                <li>Hire professional bug sweep service</li>
+                <li>They have specialized detection equipment</li>
+                <li>Can find wired and wireless cameras</li>
+                <li>Cost: $200-$500 (may be worth it for peace of mind)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>📋 Real-World Scenarios</h2>
+        
+        <div class="scenario-box">
+            <h5>Scenario 1: Camera in Bathroom Vent</h5>
+            <p><strong>Situation:</strong> Tenant notices small lens in bathroom ceiling vent. Takes photo and calls police.</p>
+            <p><strong>Outcome:</strong></p>
+            <ul>
+                <li>Police arrested landlord for criminal invasion of privacy</li>
+                <li>Tenant immediately terminated lease without penalty</li>
+                <li>Tenant sued for $50,000+ in damages for emotional distress</li>
+                <li>Landlord faced criminal charges (gross misdemeanor)</li>
+            </ul>
+            <p style="color: #4db8ac; margin-top: 0.5rem;"><strong>✓ Tenant did everything right: documented, called police, didn't confront landlord</strong></p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Scenario 2: Camera in Smoke Detector</h5>
+            <p><strong>Situation:</strong> Tenant's friend noticed blinking light in smoke detector that didn't match normal indicator. Discovered hidden camera.</p>
+            <p><strong>Outcome:</strong></p>
+            <ul>
+                <li>Tenant filed police report</li>
+                <li>Investigation revealed landlord had been recording for months</li>
+                <li>Criminal charges filed</li>
+                <li>Civil lawsuit resulted in substantial settlement</li>
+                <li>Landlord lost rental license</li>
+            </ul>
+            <p style="color: #4db8ac; margin-top: 0.5rem;"><strong>✓ Having witness helped strengthen case</strong></p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Scenario 3: "Smart" Thermostat with Camera</h5>
+            <p><strong>Situation:</strong> Landlord installed "smart thermostat" that had hidden camera and microphone. Claimed it was for "energy monitoring."</p>
+            <p><strong>Outcome:</strong></p>
+            <ul>
+                <li>Still illegal - no consent from tenant</li>
+                <li>Purpose doesn't matter - location determines legality</li>
+                <li>Tenant demanded immediate removal</li>
+                <li>Reported to Attorney General</li>
+                <li>Landlord forced to remove and faced investigation</li>
+            </ul>
+            <p style="color: #d66a6a; margin-top: 0.5rem;"><strong>⚠️ Landlord's claimed "legitimate purpose" did NOT make it legal</strong></p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>🛡️ Your Legal Rights</h2>
+        
+        <div class="allowed-box">
+            <h4>If Landlord Illegally Surveils You:</h4>
+            <ul>
+                <li><strong>Immediate Lease Termination:</strong> You can terminate lease immediately without penalty</li>
+                <li><strong>Full Security Deposit Return:</strong> Must be returned within 21 days</li>
+                <li><strong>Damages:</strong> Sue for invasion of privacy, emotional distress</li>
+                <li><strong>Criminal Prosecution:</strong> Landlord may face criminal charges</li>
+                <li><strong>Punitive Damages:</strong> Courts may award punitive damages for willful violations</li>
+                <li><strong>Attorney's Fees:</strong> Landlord may have to pay your legal costs</li>
+            </ul>
+        </div>
+
+        <h3>Minnesota Statute § 504B.211 - Privacy Rights</h3>
+        <p>In addition to criminal law, tenants have privacy rights under landlord-tenant law:</p>
+        <ul>
+            <li>Right to quiet enjoyment without surveillance</li>
+            <li>Right to privacy in rental unit</li>
+            <li>Right to refuse consent to surveillance</li>
+            <li>Right to know about any surveillance in common areas</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>❓ Frequently Asked Questions</h2>
+        
+        <div class="scenario-box">
+            <h5>Q: Can my landlord install a camera in the hallway outside my unit door?</h5>
+            <p><strong>A:</strong> YES, if it's a common hallway in a multi-unit building and tenants are notified. However, the camera cannot be positioned to see inside your unit when door opens.</p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Q: My landlord said the camera is for my safety. Does that make it legal?</h5>
+            <p><strong>A:</strong> NO. Landlord's intent or claimed purpose doesn't matter. Cameras in private areas (bathrooms, bedrooms, inside units) are illegal regardless of reason.</p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Q: What if the camera was there when I moved in and I signed a lease acknowledging it?</h5>
+            <p><strong>A:</strong> Still illegal. You cannot consent to illegal surveillance. Even if you signed acknowledging it, cameras in private areas violate criminal law.</p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Q: Can I install my own camera inside my rental unit?</h5>
+            <p><strong>A:</strong> YES. As a tenant, you can install cameras inside YOUR unit for YOUR security. Just don't point them at areas where other people (roommates, guests) have privacy expectations.</p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Q: Landlord says they need to install camera because of previous tenant damage. Is this allowed?</h5>
+            <p><strong>A:</strong> NO. Past problems with other tenants do not justify illegal surveillance of current tenants. This is still a violation of Minn. Stat. § 609.746.</p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Q: What about doorbell cameras? Can landlord see who comes/goes?</h5>
+            <p><strong>A:</strong> Depends on location:
+            <ul>
+                <li><strong>At main building entrance:</strong> LEGAL with notification</li>
+                <li><strong>At your individual unit door:</strong> ILLEGAL without your consent (invades your privacy about visitors)</li>
+            </ul>
+            </p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Q: Is audio recording different from video?</h5>
+            <p><strong>A:</strong> NO. Minnesota law covers BOTH video and audio surveillance. Recording conversations without consent is also illegal under Minn. Stat. § 626A.02 (wiretapping law).</p>
+        </div>
+
+        <div class="scenario-box">
+            <h5>Q: Can landlord access my personal security camera footage?</h5>
+            <p><strong>A:</strong> NO. Your personal security cameras are YOUR property. Landlord has no right to access footage without your permission or a court order.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>📞 Resources and Help</h2>
+        
+        <div class="warning-box">
+            <h4>If You Discover Illegal Surveillance:</h4>
+            
+            <p><strong>EMERGENCY (Active Recording):</strong></p>
+            <ul>
+                <li>Call 911 or local police non-emergency</li>
+                <li>Request immediate investigation</li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>Criminal Investigation:</strong></p>
+            <ul>
+                <li>Local Police Department</li>
+                <li>File report under Minn. Stat. § 609.746</li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>Legal Assistance:</strong></p>
+            <ul>
+                <li><strong>HOME Line Tenant Hotline:</strong> (612) 728-5767</li>
+                <li><strong>Minnesota Attorney General:</strong> (651) 296-3353</li>
+                <li><strong>Legal Aid:</strong> www.mylegalaid.org</li>
+                <li><strong>Private Attorneys:</strong> Search for tenant rights or privacy attorneys</li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>Regulatory Agencies:</strong></p>
+            <ul>
+                <li>Minnesota Department of Human Rights (if discrimination involved)</li>
+                <li>Local housing inspection department</li>
+                <li>Rental licensing authority (if landlord is licensed)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>✅ Summary: Know Your Rights</h2>
+        
+        <div class="allowed-box">
+            <h4>Key Takeaways:</h4>
+            <ul style="font-size: 1.05rem; line-height: 1.8;">
+                <li>✓ Cameras in bathrooms, bedrooms, and inside your unit are ILLEGAL</li>
+                <li>✓ Even with disclosure or consent, private area surveillance is criminal</li>
+                <li>✓ If you find a hidden camera, call police immediately - it's a crime</li>
+                <li>✓ Document everything with photos before police arrive</li>
+                <li>✓ DO NOT touch or remove the camera - it's evidence</li>
+                <li>✓ You can terminate lease immediately without penalty</li>
+                <li>✓ You can sue for damages and emotional distress</li>
+                <li>✓ Landlord may face criminal charges (gross misdemeanor)</li>
+                <li>✓ Common area cameras must be disclosed with signage</li>
+                <li>✓ You CAN install your own cameras inside your unit for security</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 2rem; padding: 1.5rem; background: rgba(214, 106, 106, 0.2); border-radius: 8px; border: 2px solid #d66a6a; text-align: center; font-size: 1.1rem;">
+            <strong>⚠️ IMPORTANT:</strong> If you even SUSPECT your landlord is surveilling you illegally, take it seriously. Your privacy and safety are protected by criminal law. Don't hesitate to contact police and legal resources.
+        </p>
+    </div>
+
+</div>
     <!-- ATTORNEYS PAGE - COMPREHENSIVE MINNESOTA COVERAGE -->
     <div id="attorneys" class="page">
         <div class="content-section">
@@ -5304,88 +7136,62 @@ THANK YOU FOR PROTECTING MY SAFETY AND COMPLYING WITH MINNESOTA LAW.
  <!-- JAVASCRIPT FOR NAVIGATION -->
 <script>
     // Copy template to clipboard
-function copyTemplate(templateId) {
-    const templateElement = document.getElementById(templateId);
-    const templateText = templateElement.innerText;
+function toggleTemplate(num) {
+    const content = document.getElementById('content-' + num);
+    const toggle = document.getElementById('toggle-' + num);
     
-    navigator.clipboard.writeText(templateText).then(function() {
-        showCopyNotification('Template copied to clipboard!');
-    }).catch(function(err) {
-        console.error('Failed to copy: ', err);
-        showCopyNotification('Failed to copy. Please try again.');
+    content.classList.toggle('active');
+    toggle.classList.toggle('active');
+}
+
+function copyTemplate(num) {
+    const template = document.getElementById('template-' + num);
+    const text = template.textContent;
+    
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('✓ Template copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        showNotification('❌ Failed to copy. Please try again.');
     });
 }
 
-// Show copy notification
-function showCopyNotification(message) {
-    const notification = document.getElementById('copyNotification');
+function downloadTemplatePDF(num, filename) {
+    const template = document.getElementById('template-' + num);
+    const text = template.textContent;
+    
+    // Create blob with text content
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    
+    // Create download link
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    showNotification('✓ Template downloaded!');
+}
+
+function showNotification(message) {
+    let notification = document.getElementById('copyNotification');
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'copyNotification';
+        notification.className = 'copy-notification';
+        document.body.appendChild(notification);
+    }
+    
     notification.textContent = message;
     notification.classList.add('show');
     
-    setTimeout(function() {
+    setTimeout(() => {
         notification.classList.remove('show');
     }, 3000);
 }
-
-// Download template as PDF
-function downloadTemplatePDF(templateId, templateName) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    
-    const templateElement = document.getElementById(templateId);
-    const templateText = templateElement.innerText;
-    
-    // Set font and margins
-    doc.setFont('courier');
-    doc.setFontSize(10);
-    
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    const margin = 15;
-    const maxLineWidth = pageWidth - (margin * 2);
-    const lineHeight = 5;
-    
-    // Split text into lines
-    const lines = doc.splitTextToSize(templateText, maxLineWidth);
-    
-    let cursorY = margin;
-    
-    lines.forEach((line, index) => {
-        if (cursorY > pageHeight - margin) {
-            doc.addPage();
-            cursorY = margin;
-        }
-        doc.text(line, margin, cursorY);
-        cursorY += lineHeight;
-    });
-    
-    // Save PDF
-    doc.save(templateName + '.pdf');
-    showCopyNotification('PDF downloaded successfully!');
-}
-    function showPage(pageId) {
-        const pages = document.querySelectorAll('.page');
-        pages.forEach(page => page.classList.remove('active'));
-        
-        const navBtns = document.querySelectorAll('.nav-btn');
-        navBtns.forEach(btn => btn.classList.remove('active'));
-        
-        const selectedPage = document.getElementById(pageId);
-        if (selectedPage) {
-            selectedPage.classList.add('active');
-        } else {
-            console.error('Page not found: ' + pageId);
-        }
-        
-        const clickedButton = Array.from(navBtns).find(btn => 
-            btn.getAttribute('onclick').includes(pageId)
-        );
-        if (clickedButton) {
-            clickedButton.classList.add('active');
-        }
-        
-        window.scrollTo(0, 0);
-    }
     
     // Check if forms should be active (mid-2026)
     function areFormsActive() {
@@ -5470,6 +7276,7 @@ function downloadTemplatePDF(templateId, templateName) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
+
 
 
 
