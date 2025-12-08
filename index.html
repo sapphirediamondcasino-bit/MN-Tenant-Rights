@@ -7503,6 +7503,24 @@ Jane Smith
     
  <!-- JAVASCRIPT FOR NAVIGATION -->
 <script>
+    function showPage(pageId) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    
+    // Remove active from all nav buttons
+    const navBtns = document.querySelectorAll('.nav-btn');
+    navBtns.forEach(btn => btn.classList.remove('active'));
+    
+    // Show selected page
+    const selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.classList.add('active');
+    }
+    
+    // Highlight active nav button
+    event.target.classList.add('active');
+}
     // Copy template to clipboard
 function toggleTemplate(num) {
     const content = document.getElementById('content-' + num);
@@ -7644,6 +7662,7 @@ function showNotification(message) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
+
 
 
 
