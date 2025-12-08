@@ -2792,28 +2792,32 @@ header .company {
     <!-- TEMPLATES PAGE - 10 TEMPLATES -->
     <div id="templates" class="page">
         <div class="content-section">
-            <h2>Letter Templates for Tenants</h2>
-            <p>Use these templates to communicate with your landlord professionally and legally. <strong>Always keep a copy of any letter you send.</strong></p>
+            <div class="templates-section-header">
+        <img src="MNTenantsRights.png" alt="MN Tenant Rights Logo">
+        <h2>📝 Tenant Letter Templates</h2>
+        <p>Professional legal letters you can customize and send to your landlord</p>
+    </div>
             
             <div class="warning-box">
                 <h4>⚠️ Important: These Are EXAMPLES, Not Legal Advice</h4>
                 <p>These templates are for educational purposes only. Modify them to fit your specific situation.</p>
             </div>
             
-            <div class="content-section">
-                <h3>Template 1: Declining Improper Financial Information Request</h3>
-                <p><strong>Use this when:</strong> Landlord requests bank statements, tax returns, proof of disability payments, pay stubs, or other financial information after your lease has already started.</p>
-               <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template1')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template1', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template1">[Your Name]
+            <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(1)">
+            <div>
+                <h3>Template 1: Declining Financial Information Request</h3>
+                <p><strong>Use when:</strong> Landlord demands bank statements, tax returns, or proof of disability payments after lease is signed.</p>
+            </div>
+            <span class="template-toggle" id="toggle-1">▼</span>
+        </div>
+        <div class="template-content" id="content-1">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(1)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(1, 'Declining_Financial_Information')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-1">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -2881,20 +2885,21 @@ header .company {
             </div>
             </div>
             
-            <div class="content-section">
-                <h3>Template 2: Reporting Privacy Violation - Unauthorized Entry or Surveillance</h3>
-                <p><strong>Use this when:</strong> Landlord enters without proper 24-hour notice, installs surveillance cameras in private areas, or otherwise violates your privacy rights.</p>
-                <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template2')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template2', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template2">[Your Name]
+            <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(2)">
+            <div>
+                <h3>Template 2: Privacy Violation - Unauthorized Entry/Surveillance</h3>
+                <p><strong>Use when:</strong> Landlord enters without 24-hour notice or installs surveillance cameras in private areas.</p>
+            </div>
+            <span class="template-toggle" id="toggle-2">▼</span>
+        </div>
+        <div class="template-content" id="content-2">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(2)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(2, 'Privacy_Violation_Notice')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-2">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -2987,20 +2992,21 @@ header .company {
             ☐ Timeline of unauthorized entries</div>
             </div>
             
-            <div class="content-section">
-                <h3>Template 3: Cease and Desist - Disability Discrimination and Harassment</h3>
-                <p><strong>Use this when:</strong> Landlord repeatedly questions you about disability payments, income sources, makes discriminatory comments, or harasses you based on disability status.</p>
-                <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template3')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template3', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template3">[Your Name]
+            <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(3)">
+            <div>
+                <h3>Template 3: Cease & Desist - Disability Discrimination</h3>
+                <p><strong>Use when:</strong> Landlord harasses you about disability payments or makes discriminatory comments.</p>
+            </div>
+            <span class="template-toggle" id="toggle-3">▼</span>
+        </div>
+        <div class="template-content" id="content-3">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(3)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(3, 'Disability_Discrimination_Cease_Desist')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-3">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3132,20 +3138,22 @@ header .company {
             ENCLOSURES: None</div>
             </div>
             
-            <div class="content-section">
-                <h3>Template 4: Asserting Retaliation Defense Under Minnesota Statute § 504B.285</h3>
-                <p><strong>Use this when:</strong> Landlord takes adverse action (eviction notice, rent increase, lease termination, reduction of services) within 90 days after you asserted your rights, reported code violations, or filed complaints.</p>
-                <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template4')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template4', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template4">[Your Name]
+            <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(4)">
+            <div>
+                <h3>Template 4: Asserting Retaliation Defense</h3>
+                <p><strong>Use when:</strong> Landlord takes adverse action within 90 days after you reported violations or asserted rights.</p>
+            </div>
+            <span class="template-toggle" id="toggle-4">▼</span>
+        </div>
+        <div class="template-content" id="content-4">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(4)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(4, 'Retaliation_Defense')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-4">[Your Name]
+[Your Address]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3304,20 +3312,21 @@ header .company {
             ☐ Copy of landlord's adverse action notice</div>
             </div>
             
-            <div class="content-section">
-                <h3>Template 5: Request for Reasonable Accommodation Under Fair Housing Act</h3>
-                <p><strong>Use this when:</strong> Requesting accommodation for a disability, such as emotional support animal, accessible parking, structural modifications, exception to pet policy, or other necessary accommodation.</p>
-                <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template5')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template5', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template5">[Your Name]
+            <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(5)">
+            <div>
+                <h3>Template 5: Request for Reasonable Accommodation</h3>
+                <p><strong>Use when:</strong> Requesting disability accommodation (ESA, accessible parking, modifications, etc.)</p>
+            </div>
+            <span class="template-toggle" id="toggle-5">▼</span>
+        </div>
+        <div class="template-content" id="content-5">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(5)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(5, 'Reasonable_Accommodation_Request')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-5">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3481,21 +3490,21 @@ header .company {
             CC: U.S. Department of Housing and Urban Development (if denied)
                 Minnesota Department of Human Rights (if denied)</div>
             </div>
-            
-            <div class="content-section">
+        <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(6)">
+            <div>
                 <h3>Template 6: Demand for Emergency Repair - Uninhabitable Conditions</h3>
-                <p><strong>Use this when:</strong> Landlord refuses to make urgent repairs affecting habitability (no heat, no water, broken furnace, gas leak, sewage backup, mold, electrical hazards, etc.).</p>
-                <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template6')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template6', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template6">[Your Name]
+                <p><strong>Use when:</strong> Landlord refuses to make urgent repairs affecting habitability (no heat, no water, broken furnace, gas leak, sewage backup, mold, electrical hazards, etc.)</p>
+            </div>
+            <span class="template-toggle" id="toggle-6">▼</span>
+        </div>
+        <div class="template-content" id="content-6">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(6)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(6, 'Declining_Financial_Information_Request')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template6">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3694,21 +3703,23 @@ header .company {
             ☐ Receipts for emergency expenses
             ☐ Thermometer readings
             ☐ Medical documentation (if health affected)</div>
-            </div>
-            
-            <div class="content-section">
-                <h3>Template 7: Final Demand for Return of Security Deposit</h3>
-                <p><strong>Use this when:</strong> Landlord has not returned security deposit within 21 days of move-out, or provided itemized statement showing lawful deductions.</p>
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template7')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template7', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
+            </div
     
-    <div class="template" id="template7">[Your Name]
+        <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(6)">
+            <div>
+                <h3>Template 7: Final Demand for Return of Security Deposit</h3>
+                <p><strong>Use when:</strong> Landlord has not returned security deposit within 21 days of move-out, or provided itemized statement showing lawful deductions.)</p>
+            </div>
+            <span class="template-toggle" id="toggle-7">▼</span>
+        </div>
+        <div class="template-content" id="content-7">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(7)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(7, 'Declining_Financial_Information_Request')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template7">[Your Name]
             [Your Current Mailing Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -3906,20 +3917,21 @@ header .company {
             ☐ Move-out inspection report (if any)</div>
             </div>
             
-            <div class="content-section">
+        <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(8)">
+            <div>
                 <h3>Template 8: Formal Complaint to City Building Inspector - Code Violations</h3>
-                <p><strong>Use this when:</strong> Reporting health, safety, building code, or habitability violations to your city's building inspection department for official investigation and enforcement.</p>
-                <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template8')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template8', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template8">[Your Name]
+                <p><strong>Use when:</strong> Reporting health, safety, building code, or habitability violations to your city's building inspection department for official investigation and enforcement.</p>
+            </div>
+            <span class="template-toggle" id="toggle-8">▼</span>
+        </div>
+        <div class="template-content" id="content-8">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(8)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(8, 'Formal_Complaint_to_City_Building_Inspector_Code_Violationst')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-8">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -4258,20 +4270,21 @@ header .company {
             - Other supporting documentation</div>
             </div>
             
-            <div class="content-section">
+        <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(9)">
+            <div>
                 <h3>Template 9: Notice of Intent to Withhold Rent - Breach of Habitability</h3>
                 <p><strong>Use this when:</strong> Planning to withhold rent and place it in escrow due to serious habitability violations that landlord has failed to repair after proper notice.</p>
-                <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template9')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template9', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template9">[Your Name]
+            </div>
+            <span class="template-toggle" id="toggle-9">▼</span>
+        </div>
+        <div class="template-content" id="content-9">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(9)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(9, 'Notice_of_Intent_to_Withhold_Rent_Breach_of_Habitability')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-9">[Your Name]
             [Your Address]
             [City, State, ZIP Code]
             [Your Phone Number]
@@ -4568,20 +4581,21 @@ header .company {
             SENT VIA CERTIFIED MAIL: [TRACKING NUMBER]</div>
             </div>
             
-            <div class="content-section">
+        <div class="template-card">
+        <div class="template-header" onclick="toggleTemplate(10)">
+            <div>
                 <h3>Template 10: Notice of Lease Termination - Domestic Violence / Harassment / Stalking</h3>
                 <p><strong>Use this when:</strong> You are a victim of domestic violence, harassment, or stalking and need to terminate your lease early under Minnesota's victim protection laws. This letter must be kept confidential for your safety.</p>
-                 <!-- ACTION BUTTONS -->
-    <div class="template-actions">
-        <button class="template-btn" onclick="copyTemplate('template10')">
-            📋 Copy to Clipboard
-        </button>
-        <button class="template-btn" onclick="downloadTemplatePDF('template10', 'Declining_Financial_Information_Request')">
-            📥 Download PDF
-        </button>
-    </div>
-    
-    <div class="template" id="template10">[Your Name]
+            </div>
+            <span class="template-toggle" id="toggle-10">▼</span>
+        </div>
+        <div class="template-content" id="content-10">
+            <div class="template-inner">
+                <div class="template-actions">
+                    <button class="template-btn" onclick="copyTemplate(10)">📋 Copy to Clipboard</button>
+                    <button class="template-btn" onclick="downloadTemplatePDF(10, 'Notice_of_Lease_Termination_Domestic_Violence_Harassment_Stalking')">📥 Download PDF</button>
+                </div>
+                <div class="template-text" id="template-10">[Your Name]
             [Your Current Address - ONLY if safe to use]
             [City, State, ZIP Code]
             [Your Phone Number - ONLY if safe to provide]
@@ -7662,6 +7676,7 @@ function showNotification(message) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
+
 
 
 
