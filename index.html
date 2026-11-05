@@ -9821,15 +9821,15 @@ function showNotification(message) {
 <div id="aiPanel" role="dialog" aria-label="Ask Ingrid, tenant rights helper">
   <div id="aiHead"><div>Ingrid<small>AI helper for Minnesota tenants</small></div><button onclick="aiToggle()" aria-label="Close chat">×</button></div>
   <div id="aiLog" aria-live="polite"></div>
-  <form id="aiForm" onsubmit="return aiSend(event)">
-    <input id="aiInput" type="text" maxlength="600" placeholder="Ask about your rights, uff da..." autocomplete="off">
-    <button id="aiSend" type="submit">Send</button>
-  </form>
+  <div id="aiForm">
+    <input id="aiInput" type="text" maxlength="600" placeholder="Ask about your rights, uff da..." autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();aiSend();}">
+    <button id="aiSend" type="button" onclick="aiSend()">Send</button>
+  </div>
   <div id="aiNote">AI-generated general information, not legal advice. Powered by Gemini.</div>
 </div>
 <script>
 /* Ingrid chat. Set AI_ENDPOINT to your proxy URL (see gemini-proxy-worker.js). NEVER put the Gemini key in this file. */
-const AI_ENDPOINT = 'flat-fog-8374.sapphirediamondcasino.workers.dev';
+const AI_ENDPOINT = 'https://flat-fog-8374.sapphirediamondcasino.workers.dev';
 const aiHist = [];
 function aiToggle(){
   const p=document.getElementById('aiPanel'); p.classList.toggle('open');
@@ -9843,8 +9843,8 @@ function aiAdd(who,text,sources){
     sources.slice(0,4).forEach((x,i)=>{if(!/^https:\/\//.test(x.uri))return;const a=document.createElement('a');a.href=x.uri;a.target='_blank';a.rel='noopener';a.textContent=x.title||x.uri;s.append(a,i<sources.length-1?' · ':'')});d.append(s)}
   log.append(d); log.scrollTop=log.scrollHeight; return d;
 }
-async function aiSend(e){
-  e.preventDefault(); const inp=document.getElementById('aiInput'); const t=inp.value.trim(); if(!t) return false;
+async function aiSend(){
+  const inp=document.getElementById('aiInput'); const t=inp.value.trim(); if(!t) return false;
   inp.value=''; aiAdd('me',t);
   if(!AI_ENDPOINT){aiAdd('bot',"I'm not connected yet. The site owner still needs to add the proxy address. In the meantime, HOME Line can help: (612) 728-5767.");return false}
   aiHist.push({role:'user',text:t}); const wait=aiAdd('bot','Lemme check on that...');
@@ -9852,7 +9852,7 @@ async function aiSend(e){
     const r=await fetch(AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:aiHist.slice(-10)})});
     const j=await r.json(); if(!r.ok) throw new Error(j.error||'error');
     wait.remove(); aiAdd('bot',j.reply,j.sources); aiHist.push({role:'model',text:j.reply});
-  }catch(err){wait.remove();aiAdd('bot',"Oh, ope, something went sideways. Try again in a bit, or call HOME Line at (612) 728-5767.")}
+  }catch(err){console.error('Ingrid error:',err);wait.remove();aiAdd('bot',"Oh, ope, something went sideways. Try again in a bit, or call HOME Line at (612) 728-5767.")}
   return false;
 }
 /* close mobile menu after choosing a page */
