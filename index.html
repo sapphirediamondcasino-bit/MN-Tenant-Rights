@@ -1874,7 +1874,71 @@ button:focus,
                 color: black !important;
             }
         }
-    </style>
+    
+/* ===== Added: coming-soon badge, referral lists, update tables ===== */
+.soon-badge { display:inline-block; margin-left:0.5rem; padding:2px 10px; font-size:0.7em; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#0a1929; background:#ffd54f; border-radius:20px; vertical-align:middle; }
+.now-badge { display:inline-block; margin-left:0.5rem; padding:2px 10px; font-size:0.7em; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#0a1929; background:#00ff9d; border-radius:20px; vertical-align:middle; }
+.referral-box { margin:0.75rem 0; padding:1rem 1.25rem; background:rgba(0,77,64,0.5); border:1px solid #00ff9d; border-radius:8px; }
+.referral-box h5 { color:#00ff9d; margin-bottom:0.4rem; font-size:1.05em; }
+.referral-box ul { margin-left:1.25rem; }
+.referral-box a, .law-table a, .update-item a { color:#40c4ff; }
+.law-table-wrap { overflow-x:auto; margin:1rem 0; }
+.law-table { width:100%; border-collapse:collapse; font-size:0.95em; }
+.law-table th, .law-table td { padding:10px 12px; border:1px solid rgba(64,196,255,0.4); text-align:left; vertical-align:top; color:#e0f2f1; }
+.law-table th { background:rgba(26,35,126,0.7); color:#00ff9d; }
+.update-item { margin:1rem 0; padding:1rem 1.25rem; background:rgba(10,25,41,0.85); border-left:4px solid #00ff9d; border-radius:6px; }
+.update-item h4 { color:#00ff9d; margin-bottom:0.4rem; }
+.update-date { display:inline-block; font-size:0.8em; font-weight:700; color:#0a1929; background:#40c4ff; padding:1px 8px; border-radius:4px; margin-bottom:0.4rem; }
+
+/* ===== NEW LAYOUT (colors + northern lights unchanged) ===== */
+:root{--side-w:268px}
+nav{position:fixed!important;top:0;left:0;bottom:0;width:var(--side-w);z-index:900;overflow-y:auto;background:rgba(6,16,30,.96)!important;border-right:2px solid #40c4ff;padding:1rem .75rem 2rem;box-shadow:4px 0 24px rgba(0,0,0,.45)}
+nav::before{content:"Minnesota Tenant Rights";display:block;color:#00ff9d;font-weight:700;font-size:1.05rem;text-shadow:0 0 10px rgba(0,255,157,.5);padding:.4rem .6rem 1rem;border-bottom:1px solid rgba(64,196,255,.35);margin-bottom:.75rem}
+.nav-container{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;gap:4px!important;max-width:none!important;padding:0!important;margin:0!important}
+.nav-btn{width:100%;text-align:left!important;border-radius:8px!important;padding:.6rem .85rem!important;white-space:normal}
+.nav-btn.active{box-shadow:inset 4px 0 0 #00ff9d}
+.donate-btn{display:block!important;text-align:center;margin-top:.75rem!important}
+header,.disclaimer-banner,main,footer{margin-left:var(--side-w)}
+header .container{text-align:left;display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;align-items:center}
+header .header-logo{grid-row:1/4}
+header h1,header .tagline,header .company{text-align:left!important;margin-left:0!important}
+main.container{max-width:1000px;margin-left:calc(var(--side-w) + 2rem);margin-right:2rem;padding:2rem 0}
+.hero{text-align:left!important;border-left:6px solid #00ff9d;border-radius:4px 18px 18px 4px!important;padding:2rem 2.25rem!important}
+.card-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))!important;gap:1.25rem!important}
+.card{border-radius:16px!important;border-top:3px solid #40c4ff}
+.content-section{border-radius:4px 18px 18px 4px!important;border-left:5px solid #40c4ff!important;padding:2rem 2.25rem!important}
+.page{animation:pgin .35s ease}
+@keyframes pgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+footer .footer-content{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+#menuToggle{display:none}
+@media(max-width:960px){
+ nav{transform:translateX(-100%);transition:transform .3s ease;width:min(84vw,300px)}
+ body.menu-open nav{transform:none}
+ header,.disclaimer-banner,main,footer{margin-left:0}
+ main.container{margin:0 auto;padding:1.5rem 14px}
+ header .container{grid-template-columns:1fr}
+ header .header-logo{grid-row:auto}
+ #menuToggle{display:block;position:fixed;top:12px;left:12px;z-index:1000;background:#0a1929;color:#00ff9d;border:2px solid #00ff9d;border-radius:8px;padding:.5rem .9rem;font-weight:700;cursor:pointer}
+ .hero,.content-section{padding:1.25rem!important}
+}
+/* ===== AI CHAT (Ingrid) ===== */
+#aiFab{position:fixed;right:20px;bottom:20px;z-index:1100;background:linear-gradient(135deg,#1a237e,#004d40);color:#00ff9d;border:2px solid #00ff9d;border-radius:30px;padding:.75rem 1.2rem;font-weight:700;cursor:pointer;box-shadow:0 6px 24px rgba(0,255,157,.35)}
+#aiPanel{position:fixed;right:20px;bottom:80px;z-index:1100;width:min(390px,calc(100vw - 24px));height:min(560px,calc(100vh - 110px));display:none;flex-direction:column;background:rgba(10,25,41,.98);border:2px solid #40c4ff;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.6);overflow:hidden}
+#aiPanel.open{display:flex}
+#aiHead{padding:.8rem 1rem;background:linear-gradient(135deg,#1a237e,#004d40);color:#00ff9d;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+#aiHead small{display:block;color:#e0f2f1;font-weight:400;font-size:.75rem}
+#aiHead button{background:none;border:none;color:#e0f2f1;font-size:1.3rem;cursor:pointer}
+#aiLog{flex:1;overflow-y:auto;padding:.8rem;display:flex;flex-direction:column;gap:.6rem}
+.aiMsg{max-width:88%;padding:.55rem .8rem;border-radius:12px;font-size:.93rem;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}
+.aiMsg.bot{background:rgba(26,35,126,.55);color:#e0f2f1;align-self:flex-start}
+.aiMsg.me{background:rgba(0,77,64,.8);color:#e0f2f1;align-self:flex-end}
+.aiMsg a{color:#40c4ff}
+.aiSrc{font-size:.78rem;margin-top:.4rem}
+#aiForm{display:flex;gap:6px;padding:.6rem;border-top:1px solid rgba(64,196,255,.35)}
+#aiInput{flex:1;padding:.6rem;border-radius:8px;border:2px solid #40c4ff;background:#0a1929;color:#e0f2f1;font-size:16px}
+#aiSend{background:#00ff9d;color:#0a1929;border:none;border-radius:8px;padding:0 1rem;font-weight:700;cursor:pointer}
+#aiNote{font-size:.7rem;text-align:center;color:#b0bec5;padding:0 .6rem .5rem}
+</style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -1903,6 +1967,7 @@ button:focus,
             <button class="nav-btn" onclick="showPage('examples')">Real Examples</button>
             <button class="nav-btn" onclick="showPage('building-codes')">Building Codes</button>
             <button class="nav-btn" onclick="showPage('statutes')">Laws & Statutes</button>
+            <button class="nav-btn" onclick="showPage('law-updates')">Law Updates</button>
             <button class="nav-btn" onclick="showPage('templates')">Letter Templates</button>
             <button class="nav-btn" onclick="showPage('landlord-communication')">Landlord Communication</button>
             <button class="nav-btn" onclick="showPage('security-cameras')">Security Cameras</button>
@@ -2022,6 +2087,16 @@ button:focus,
                 </div>
             </div>
 
+            <div class="info-box">
+                <h3>🆕 What's New (Updated November 2026)</h3>
+                <ul>
+                    <li><strong>New Minnesota law effective Aug. 1, 2026:</strong> backup rent payment when an online portal fails, estimated final utility bills, minor children can't be named in evictions, and changes to expedited evictions.</li>
+                    <li><strong>Federal changes in progress:</strong> HUD is changing or proposing changes to some fair housing and HUD-housing eviction notice rules. Core federal protections (Fair Housing Act, Section 504, ADA) remain in place.</li>
+                    <li><strong>Minnesota + federal side by side:</strong> see the new <a href="#" onclick="showPage('law-updates'); return false;" style="color:#40c4ff;">Law Updates</a> page.</li>
+                    <li><strong>Tenant Justice MN:</strong> expected launch is now the <strong>end of 2027</strong>. Until then we offer general guidance (not legal advice) and referrals to existing organizations.</li>
+                </ul>
+            </div>
+
             <div class="success-box">
                 <h3>💡 How to Use This Site</h3>
                 <p><strong>Step 1:</strong> Identify your situation in the "Real Examples" section</p>
@@ -2058,7 +2133,7 @@ button:focus,
                 <h2>About This Resource</h2>
                 <p><strong>Created by:</strong> Kurrasch Systems Studios</p>
                 <p><strong>Mission:</strong> To provide free, accessible education about Minnesota tenant rights and protections</p>
-                <p><strong>Last Updated:</strong> January 2026</p>
+                <p><strong>Last Updated:</strong> November 2026</p>
                 <p><strong>Coverage:</strong> Minnesota state law, federal Fair Housing Act, and relevant building codes</p>
                 <p style="margin-top: 1rem;"><em>This site is maintained by tenants, for tenants. We believe knowledge is power, and every Minnesota renter deserves to know their legal rights.</em></p>
             </div>
@@ -2165,7 +2240,7 @@ button:focus,
                     <ul>
                         <li><strong>We are NOT a law firm.</strong> We do not practice law.</li>
                         <li><strong>We are NOT attorneys.</strong> We do not provide legal representation.</li>
-                        <li><strong>We are NOT a nonprofit organization</strong> (though Tenant Justice MN, a nonprofit, is in development for 2026 launch).</li>
+                        <li><strong>We are NOT a nonprofit organization</strong> (though Tenant Justice MN, a nonprofit, is in development with an expected launch at the end of 2027).</li>
                         <li><strong>We do NOT provide legal advice.</strong> Information on this site is educational only.</li>
                         <li><strong>We do NOT represent tenants in court.</strong> You must hire a licensed attorney for legal representation.</li>
                         <li><strong>No attorney-client relationship is created</strong> by using this website or contacting us.</li>
@@ -2184,8 +2259,8 @@ button:focus,
                         <li>New court decisions affecting tenant rights</li>
                         <li>Changes to enforcement procedures or contact information</li>
                     </ul>
-                    <p><strong>Last Major Update:</strong> November 2024</p>
-                    <p><strong>Next Scheduled Review:</strong> January 2026</p>
+                    <p><strong>Last Major Update:</strong> November 2026</p>
+                    <p><strong>Next Scheduled Review:</strong> January 2027</p>
                     <p>If you find outdated information or errors, we encourage you to verify with official sources and consult a licensed attorney.</p>
                 </div>
                 
@@ -2194,7 +2269,7 @@ button:focus,
                 
                 <p><strong>Our goal is simple:</strong> Give Minnesota tenants the knowledge they need to understand the law, recognize violations, and take appropriate action. An educated tenant is an empowered tenant.</p>
                 
-                <p>This website is just the beginning. Tenant Justice MN, our nonprofit launching in 2026, will provide direct legal advocacy, representation, and enforcement to ensure landlords comply with Minnesota law.</p>
+                <p>This website is just the beginning. Tenant Justice MN, our nonprofit expected to launch at the end of 2027, will provide direct legal advocacy, representation, and enforcement to ensure landlords comply with Minnesota law.</p>
             </div>
         </div>
 
@@ -3139,6 +3214,7 @@ button:focus,
         <div class="content-section">
             <h2>Minnesota Statutes & Federal Laws</h2>
             <p>Below are the complete texts of Minnesota statutes and federal laws that protect tenant rights. Each includes a direct link to the official source.</p>
+            <div class="info-box"><p>🆕 Looking for recent changes? See the <a href="#" onclick="showPage('law-updates'); return false;" style="color:#40c4ff;">Law Updates</a> page for 2024&ndash;2026 Minnesota changes and how Minnesota and federal law work together.</p></div>
             
             <!-- Statute 1 -->
             <div style="background:#fafafa;border:2px solid #3b82f6;padding:1.5rem;margin:1.5rem 0;border-radius:6px">
@@ -3470,6 +3546,98 @@ button:focus,
         </div>
     </div>
     
+
+    <!-- LAW UPDATES PAGE -->
+    <div id="law-updates" class="page">
+        <div class="content-section">
+            <h2>🆕 Law Updates: Minnesota &amp; Federal</h2>
+            <p><strong>Last updated:</strong> November 2026. Minnesota and federal law work together: you are protected by <strong>both</strong>, and when they differ, the rule that is <strong>more protective of tenants</strong> usually matters most. This is general information, not legal advice.</p>
+
+            <div class="warning-box">
+                <h4>⚠️ Laws change often</h4>
+                <p>Some federal rules below are still being proposed, challenged, or revised. Always confirm current status with the official links, HOME Line, or a licensed attorney before relying on a date or rule.</p>
+            </div>
+
+            <h3>Minnesota Updates</h3>
+
+            <div class="update-item">
+                <span class="update-date">Effective Aug. 1, 2026</span>
+                <h4>2026 landlord-tenant changes</h4>
+                <ul>
+                    <li><strong>Online rent portal backup:</strong> if a landlord requires or allows an online payment platform and it stops working, the landlord must offer an alternative way to pay with no fee. No late fees or eviction filing if you could not pay because both the portal and the alternative were unavailable.</li>
+                    <li><strong>Final utility bills:</strong> in certain submetered or apportioned billing setups, a landlord may estimate your final utility charge from the previous billing period, prorated to your move-out date, with limits on added fees.</li>
+                    <li><strong>Children and evictions:</strong> a landlord generally may not name a tenant's minor child as a defendant in an eviction case (unless the minor is the sole renter), with potential damages for violations.</li>
+                    <li><strong>Expedited evictions:</strong> now include assaults on a landlord or their employees or contractors. The penalty for improperly asking for an expedited hearing increased (up to $750).</li>
+                </ul>
+                <p><a href="https://www.house.mn.gov/NewLaws/story/2026/5743" target="_blank" rel="noopener">Minnesota House summary &rarr;</a></p>
+            </div>
+
+            <div class="update-item">
+                <span class="update-date">Effective Jan. 1, 2025</span>
+                <h4>2024 tenant protection package (now in effect)</h4>
+                <ul>
+                    <li><strong>Service and support animals:</strong> landlords may not charge pet fees, deposits, or extra rent for them, and a landlord who charges pet fees must say so in the lease (Minn. Stat. § 504B.113).</li>
+                    <li><strong>ITIN option:</strong> applications must let you use an ITIN instead of an SSN, and a landlord cannot deny you solely for using an ITIN (Minn. Stat. § 504B.117).</li>
+                    <li><strong>Right to organize:</strong> tenants can form and run tenant associations, and retaliation for organizing is prohibited (Minn. Stat. § 504B.212).</li>
+                    <li><strong>Pending evictions:</strong> landlords cannot deny an application just because of a pending eviction case (Minn. Stat. § 504B.173).</li>
+                    <li><strong>Calling for help:</strong> landlords cannot penalize you for calling police or emergency help, including for mental health or health crises (Minn. Stat. § 504B.205).</li>
+                    <li><strong>Subsidized housing:</strong> late fees may only be based on the tenant's portion of rent, not the full rent.</li>
+                    <li><strong>New construction delays:</strong> landlords must notify and compensate tenants when new units are not ready on time.</li>
+                    <li><strong>Attorney General enforcement:</strong> the Attorney General has explicit authority to investigate and enforce Minnesota landlord-tenant law.</li>
+                </ul>
+                <p><a href="https://homelinemn.org/wp-content/uploads/2024/07/Public-Summary-of-2024-Legislative-Changes-HL-Letterhead.pdf" target="_blank" rel="noopener">HOME Line summary of 2024 changes &rarr;</a></p>
+            </div>
+
+            <div class="update-item">
+                <span class="update-date">Effective Jan. 1, 2024</span>
+                <h4>Fee transparency and other 2023 reforms</h4>
+                <ul>
+                    <li><strong>Total Monthly Payment:</strong> all non-optional fees must be disclosed in the lease, added to rent as the "Total Monthly Payment" on the first page, and included in advertisements (Minn. Stat. § 504B.120).</li>
+                    <li><strong>24-hour entry notice, inspections, and heat:</strong> see Your Rights and Building Codes pages.</li>
+                </ul>
+                <p><a href="https://www.revisor.mn.gov/statutes/cite/504B.120" target="_blank" rel="noopener">Read § 504B.120 &rarr;</a></p>
+            </div>
+
+            <h3>Federal Updates</h3>
+
+            <div class="update-item">
+                <span class="update-date">Status: changing</span>
+                <h4>What is happening at the federal level</h4>
+                <ul>
+                    <li><strong>Fair Housing Act disparate-impact rule:</strong> in January 2026 HUD proposed removing its rule on "disparate impact" (practices that harm protected groups even without intent) and leaving that question to the courts. The Fair Housing Act itself is unchanged. Discrimination because of race, color, religion, sex, national origin, familial status, or disability is still illegal. <a href="https://www.federalregister.gov/documents/2026/01/14/2026-00590/huds-implementation-of-the-fair-housing-acts-disparate-impact-standard" target="_blank" rel="noopener">Federal Register notice &rarr;</a></li>
+                    <li><strong>30-day notice in HUD-assisted housing:</strong> HUD moved to rescind the 30-day notice requirement before eviction for nonpayment in covered HUD housing. A lawsuit followed and the rule's status has been in flux. If you live in HUD-assisted housing, confirm the current rule with HOME Line or legal aid. <a href="https://nlihc.org/resource/hud-issues-interim-final-rule-rescinding-30-day-termination-notice-requirement-nonpayment" target="_blank" rel="noopener">NLIHC summary &rarr;</a></li>
+                    <li><strong>Fair housing enforcement funding:</strong> fair housing groups sued HUD in July 2026 over changes to a grant program that funds local fair housing organizations. If a local group is unavailable, you can still file with HUD or the Minnesota Department of Human Rights.</li>
+                    <li><strong>Minnesota law is not affected:</strong> federal rollbacks do not change the Minnesota Human Rights Act or Chapter 504B, which continue to protect Minnesota tenants.</li>
+                </ul>
+            </div>
+
+            <h3>Minnesota &amp; Federal Law Side by Side</h3>
+            <div class="law-table-wrap">
+            <table class="law-table">
+                <thead><tr><th>Topic</th><th>Minnesota law</th><th>Federal law</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Housing discrimination</strong></td><td>Minnesota Human Rights Act, Minn. Stat. § 363A.09 (includes source of income/public assistance, sexual orientation, marital status)</td><td>Fair Housing Act, 42 U.S.C. §§ 3601-3619 (race, color, religion, sex, national origin, familial status, disability)</td></tr>
+                    <tr><td><strong>Disability accommodations</strong></td><td>Minn. Stat. § 363A.09; service/support animals § 504B.113 (no animal fees)</td><td>FHA 42 U.S.C. § 3604(f); Section 504 (29 U.S.C. § 794); ADA</td></tr>
+                    <tr><td><strong>Retaliation</strong></td><td>Minn. Stat. § 504B.285 (90-day presumption); § 504B.212 (organizing)</td><td>FHA 42 U.S.C. § 3617 (interference/retaliation for asserting fair housing rights)</td></tr>
+                    <tr><td><strong>Eviction notice (nonpayment)</strong></td><td>Minn. Stat. § 504B.321 (written notice with itemized amounts owed; eviction goes through court)</td><td>CARES Act 30-day notice for covered federally backed properties (42 U.S.C. § 9058(c)); HUD-assisted housing rules (status in flux, see above)</td></tr>
+                    <tr><td><strong>Domestic violence survivors</strong></td><td>Minn. Stat. § 504B.206 (lease termination and protections)</td><td>Violence Against Women Act (VAWA) housing protections, 34 U.S.C. § 12491</td></tr>
+                    <tr><td><strong>Tenant screening and credit</strong></td><td>Minn. Stat. §§ 504B.173, 504B.117, 504B.241</td><td>Fair Credit Reporting Act, 15 U.S.C. § 1681 et seq.</td></tr>
+                    <tr><td><strong>Repairs and habitability</strong></td><td>Minn. Stat. § 504B.161 (covenants), §§ 504B.385, 504B.395 (rent escrow and remedies)</td><td>No general federal repair law for private rentals; HUD housing quality standards for assisted housing (24 C.F.R. § 982.401)</td></tr>
+                    <tr><td><strong>Security deposits</strong></td><td>Minn. Stat. § 504B.178 (return within 21 days; itemized deductions)</td><td>None (state law controls)</td></tr>
+                    <tr><td><strong>Lead paint</strong></td><td>Local and state health rules</td><td>Federal lead-based paint disclosure, 42 U.S.C. § 4852d</td></tr>
+                    <tr><td><strong>Military service members</strong></td><td>Minn. Stat. chapter 504B early-termination rules</td><td>Servicemembers Civil Relief Act, 50 U.S.C. § 3951</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p><em>Always read the official statute before relying on a citation. Official sources: <a href="https://www.revisor.mn.gov/statutes/cite/504B" target="_blank" rel="noopener">Minnesota Statutes chapter 504B</a> and <a href="https://www.hud.gov/program_offices/fair_housing_equal_opp" target="_blank" rel="noopener">HUD Fair Housing</a>.</em></p>
+
+            <div class="success-box">
+                <h4>Where to get help</h4>
+                <p>HOME Line: <a href="tel:6127285767" style="color:#00ff9d;">(612) 728-5767</a> or <a href="tel:8668663546" style="color:#00ff9d;">(866) 866-3546</a> &bull; MN Attorney General: <a href="tel:6512963353" style="color:#00ff9d;">(651) 296-3353</a> &bull; MN Dept. of Human Rights: <a href="tel:6515391100" style="color:#00ff9d;">(651) 539-1100</a> &bull; HUD: <a href="tel:8006699777" style="color:#00ff9d;">1-800-669-9777</a></p>
+            </div>
+        </div>
+    </div>
+
     <!-- TEMPLATES PAGE - 10 TEMPLATES -->
     <div id="templates" class="page">
         <div class="content-section">
@@ -8121,17 +8289,27 @@ Jane Smith
                 
                 <div class="hero" style="margin-bottom:2rem">
                     <h2>A Nonprofit Dedicated to Tenant Rights</h2>
-                    <p>Launching in 2026 - Direct Legal Advocacy for Minnesota Tenants</p>
+                    <p>Expected Launch: End of 2027 - Direct Legal Advocacy for Minnesota Tenants</p>
                 </div>
                 
                 <h3>What is Tenant Justice MN?</h3>
-                <p><strong>Tenant Justice MN</strong> is a nonprofit organization currently in development, expected to launch in <strong>2026</strong>. Our mission is to provide direct legal advocacy, enforcement, and education to ensure Minnesota landlords comply with state and federal tenant protection laws.</p>
+                <p><strong>Tenant Justice MN</strong> is a nonprofit organization currently in development, expected to launch at the <strong>end of 2027</strong>. Our mission is to provide direct legal advocacy, enforcement, and education to ensure Minnesota landlords comply with state and federal tenant protection laws.</p>
                 
                 <div class="warning-box">
                     <h4>⚠️ IMPORTANT: We Are NOT Yet Operational</h4>
                     <p>Tenant Justice MN is <strong>not yet operational</strong> and cannot currently provide legal representation or advocacy services. For immediate assistance, contact HOME Line, legal aid organizations, or private attorneys listed on this website.</p>
                 </div>
                 
+                <div class="success-box">
+                    <h4>✅ What We Can Do Right Now</h4>
+                    <p>Until Tenant Justice MN launches, this website offers <strong>general information and guidance only. This is not legal advice.</strong> We are not attorneys and cannot represent you. What we can do today:</p>
+                    <ul>
+                        <li>Explain tenant rights under Minnesota and federal law in plain language</li>
+                        <li>Offer letter templates and documentation tips</li>
+                        <li>Point you to organizations that provide homelessness prevention, food, and legal help right now (see the programs below)</li>
+                    </ul>
+                </div>
+
                 <h3>Our Mission</h3>
                 <div class="card-grid" style="margin-top:1.5rem">
                     <div class="card">
@@ -8165,49 +8343,76 @@ Jane Smith
                     </div>
                 </div>
                 
-                <h3>Our Programs (Launching Mid-2026)</h3>
+                <h3>Our Programs (Expected Launch: End of 2027)</h3>
 <p>Tenant Justice MN will offer the following programs to support Minnesota tenants:</p>
 
 <!-- Program 1: Homelessness Prevention -->
 <div class="program-section">
-    <h4>1. Homelessness Prevention Program</h4>
+    <h4>1. Homelessness Prevention Program <span class="soon-badge">Coming Soon</span></h4>
     <p><strong>Purpose:</strong> Prevent tenants from losing housing due to landlord misconduct, unsafe conditions, retaliation, or sudden hardship.</p>
     <p><strong>How it works:</strong> Tenants submit a request via our online form. Staff reviews lease, rent history, notices, and safety concerns, then builds a stabilization plan including negotiation coaching, documentation preparation, and letters. This program is State Wide.</p>
-    <button class="program-btn" onclick="showOverlay('Homelessness Prevention Help')">Get Homelessness Prevention Help</button>
+    <div class="referral-box">
+        <h5>🏠 Help available right now (we recommend these organizations)</h5>
+        <p>Until our program starts, we can offer general advice but not legal advice. For homelessness prevention, please contact:</p>
+        <ul>
+            <li><strong>Dial 211</strong> (United Way 211, <a href="https://www.211unitedway.org" target="_blank" rel="noopener">211unitedway.org</a>) &ndash; connects you to local emergency housing, rent assistance, and shelter</li>
+            <li><strong>HOME Line</strong> &ndash; <a href="tel:6127285767">(612) 728-5767</a> (Metro) or <a href="tel:8668663546">(866) 866-3546</a> (Greater MN) &ndash; free tenant hotline, eviction help</li>
+            <li><strong>Your county human services office</strong> &ndash; ask about emergency assistance and the Family Homeless Prevention and Assistance Program (FHPAP)</li>
+            <li><strong>Local Community Action agency</strong> &ndash; many offer rent and eviction-prevention help</li>
+            <li><strong>LawHelpMN</strong> &ndash; <a href="https://www.lawhelpmn.org" target="_blank" rel="noopener">lawhelpmn.org</a> &ndash; free legal aid for qualifying tenants facing eviction</li>
+        </ul>
+    </div>
+    <button class="program-btn" onclick="showOverlay('Homelessness Prevention Help')">Learn More About This Program</button>
 </div>
 
 <!-- Program 2: Emergency Food Security -->
 <div class="program-section">
-    <h4>2. Emergency Food Security Program</h4>
+    <h4>2. Emergency Food Security Program <span class="soon-badge">Coming Soon</span></h4>
     <p><strong>Purpose:</strong> Provide food access to tenants who cannot access SNAP, were denied, or are in waiting periods.</p>
-    <p><strong>How it works:</strong> Tenant submits a food request form. Staff reviews household size, dietary needs, and urgency. Program provides emergency meals, food boxes (when funded), and partner pantry referrals. This program is donation-funded; no government application required. This program is Start in the citys Listed Luverne(all of Rock County) Worthington (all of nobles County) Pipston(parts of Pipston County) Jakson (Parts OF jackson County) More Coming Soon</p>
-    <button class="program-btn" onclick="showOverlay('Emergency Food Request')">Request Emergency Food</button>
+    <p><strong>How it will work:</strong> Tenant submits a food request form. Staff reviews household size, dietary needs, and urgency. Program provides emergency meals, food boxes (when funded), and partner pantry referrals. This program is donation-funded; no government application required.</p>
+    <p><strong>Where it will start:</strong> Luverne (all of Rock County), Worthington (all of Nobles County), Pipestone (parts of Pipestone County), and Jackson (parts of Jackson County). More areas coming soon.</p>
+    <div class="referral-box">
+        <h5>🍎 Need food now? Go to your nearest food shelf</h5>
+        <p>Until our services start, we send you to the nearest food shelf:</p>
+        <ul>
+            <li><strong>Minnesota Food HelpLine:</strong> <a href="tel:18887111151">1-888-711-1151</a> (call or text) &ndash; finds food shelves and helps with SNAP applications</li>
+            <li><strong>Find a food shelf near you:</strong> <a href="https://www.hungersolutions.org/find-help/" target="_blank" rel="noopener">hungersolutions.org/find-help</a> (enter your ZIP code)</li>
+            <li><strong>Dial 211</strong> for food, meals, and other emergency help</li>
+        </ul>
+    </div>
+    <button class="program-btn" onclick="showOverlay('Emergency Food Request')">Learn More About This Program</button>
 </div>
 
 <!-- Program 3: Landlord Misconduct Reporting -->
 <div class="program-section">
-    <h4>3. Landlord Misconduct Reporting & Accountability Program</h4>
+    <h4>3. Landlord Misconduct Reporting & Accountability Program <span class="soon-badge">Coming Soon</span></h4>
     <p><strong>Purpose:</strong> Allow tenants to securely report illegal or abusive landlord behavior and track repeat offenders.</p>
     <p><strong>Reportable issues:</strong> Retaliation, harassment, illegal entry, unsafe conditions, lease violations, privacy violations (cameras, monitoring), discrimination.</p>
     <p><strong>How it works:</strong> Tenant submits a misconduct report. Staff reviews severity, verifies details, and organizes documentation. Staff provides guidance for letters, filing complaints, and next steps. Internal tracking identifies repeat offenders. This program is State Wide.</p>
-    <button class="program-btn" onclick="showOverlay('Landlord Misconduct Report')">Report Landlord Misconduct</button>
+    <p><em>This program is coming soon. In the meantime you can file complaints directly with the <a href="#" onclick="showPage('attorney-general'); return false;" style="color:#40c4ff;">Minnesota Attorney General</a> or HOME Line at <a href="tel:6127285767" style="color:#40c4ff;">(612) 728-5767</a>.</em></p>
+    <button class="program-btn" onclick="showOverlay('Landlord Misconduct Report')">Learn More About This Program</button>
 </div>
 
 <!-- Program 4: Disability Tenant Protection -->
 <div class="program-section">
-    <h4>4. Disability Tenant Protection Program</h4>
-    <p><strong>Purpose:</strong> Protect tenants with disabilities from landlord neglect or violations.</p>
-    <p><strong>Coverage includes:</strong> Accommodation requests, support animals/ESA issues, mobility access, ADA protections, medical-related housing needs.</p>
-    <p><strong>How it works:</strong> Tenant submits request. Staff reviews functional needs and drafts accommodation letters. Staff helps document landlord violations to ensure legal compliance.This program is State Wide.</p>
-    <button class="program-btn" onclick="showOverlay('Disability Protection Request')">Request Disability Protection</button>
+    <h4>4. Disability Tenant Advocacy Program <span class="soon-badge">Coming Soon</span></h4>
+    <div class="referral-box">
+        <h5>♿ Tenants with disabilities are protected by law right now</h5>
+        <p>You do not have to wait for our program. The Fair Housing Act, Section 504 of the Rehabilitation Act, the Americans with Disabilities Act, and the Minnesota Human Rights Act already protect you today, including your right to request reasonable accommodations. See our <a href="#" onclick="showPage('accessibility'); return false;">Accessibility &amp; Disability Rights</a> page, or contact the Minnesota Department of Human Rights at <a href="tel:6515391100">(651) 539-1100</a>, HUD at <a href="tel:8006699777">1-800-669-9777</a>, or HOME Line at <a href="tel:6127285767">(612) 728-5767</a>.</p>
+    </div>
+    <p><strong>Purpose:</strong> Once launched, our program will add hands-on advocacy for tenants with disabilities whose landlords ignore or violate these existing protections.</p>
+    <p><strong>Coverage will include:</strong> Accommodation requests, support animal/ESA issues, mobility access, ADA protections, medical-related housing needs.</p>
+    <p><strong>How it will work:</strong> Tenant submits request. Staff reviews functional needs and drafts accommodation letters. Staff helps document landlord violations to ensure legal compliance. This program will be statewide.</p>
+    <button class="program-btn" onclick="showOverlay('Disability Protection Request')">Learn More About This Program</button>
 </div>
 
 <!-- Program 5: Low-Income Crisis Response -->
 <div class="program-section">
-    <h4>5. Low-Income Crisis Response Program</h4>
+    <h4>5. Low-Income Crisis Response Program <span class="soon-badge">Coming Soon</span></h4>
     <p><strong>Purpose:</strong> Provide rapid assistance to tenants facing sudden hardship, eviction risk, or unsafe conditions.</p>
     <p><strong>How it works:</strong> Tenant submits crisis request. Staff reviews priority status and urgency. Assistance includes same-day action plan, letters/documentation, and referrals to non-government resources.This program is State Wide.</p>
-    <button class="program-btn" onclick="showOverlay('Crisis Help Request')">Get Crisis Help Now</button>
+    <p><em>This program is coming soon. For urgent help today, dial <a href="tel:211" style="color:#40c4ff;">211</a> or call HOME Line at <a href="tel:6127285767" style="color:#40c4ff;">(612) 728-5767</a>. Call 911 in an emergency.</em></p>
+    <button class="program-btn" onclick="showOverlay('Crisis Help Request')">Learn More About This Program</button>
 </div>
 
 <!-- Additional Tenant Protections Section -->
@@ -8218,7 +8423,7 @@ Jane Smith
         <li>Landlords cannot enter rental units without proper notice (usually 24 hours unless emergency)</li>
         <li>Cameras in private areas are prohibited</li>
         <li>Retaliation for reporting issues is illegal</li>
-        <li>Disability protections prevent unnecessary medical requests</li>
+        <li>Tenants with disabilities are protected by law today, including reasonable accommodations and limits on intrusive medical questions</li>
     </ul>
     <p style="margin-top:1rem"><strong>Tip:</strong> Keep documentation of any landlord violations, communications, or threats — useful once forms are active.</p>
 </div>
@@ -8228,7 +8433,7 @@ Jane Smith
     <div class="overlay-content">
         <h3 id="overlayTitle">⚠️ Form Not Available Yet</h3>
         
-        <!-- Form (hidden initially, shown when mid-2026) -->
+        <!-- Form (hidden until launch, expected end of 2027) -->
         <form id="programForm" style="display: none;">
             <input type="hidden" name="program_type" id="programType" value="">
             
@@ -8264,9 +8469,10 @@ Jane Smith
         <!-- "Not Available" message (shown initially) -->
         <div id="notAvailableMessage">
             <p><strong>Tenant Justice MN is not accepting requests until operations begin.</strong></p>
-            <p>This form will become active in <strong>mid-2026</strong> once we are fully operational and funded.</p>
-            <p>Please return after mid-2026 to access our services.</p>
-            <p style="margin-top:1rem; font-size:14px;">For immediate assistance, contact HOME Line at (612) 728-5767 or visit the resources on this website.</p>
+            <p>This form will become active at the <strong>end of 2027</strong> once we are fully operational and funded.</p>
+            <p>Please check back at the end of 2027 for our services. Until then, the organizations below can help.</p>
+            <p id="overlayReferral" style="margin-top:1rem;"></p>
+            <p style="margin-top:1rem; font-size:14px;">We can offer general guidance but not legal advice. For immediate assistance, contact HOME Line at (612) 728-5767 or visit the resources on this website.</p>
             <button class="overlay-close-btn" onclick="closeOverlay()">Close</button>
         </div>
     </div>
@@ -8299,7 +8505,7 @@ Jane Smith
                 <h3>When Will Tenant Justice MN Launch?</h3>
                 <div class="info-box">
                     <h4>Current Status: In Development</h4>
-                    <p><strong>Expected Launch:</strong> 2026</p>
+                    <p><strong>Expected Launch:</strong> End of 2027</p>
                     <p><strong>Current Activities:</strong></p>
                     <ul>
                         <li>Forming nonprofit corporation with Minnesota Secretary of State</li>
@@ -8328,7 +8534,7 @@ Jane Smith
                 <h3>Contact (Once Operational)</h3>
                 <div class="warning-box">
                     <h4>⚠️ NOT YET AVAILABLE</h4>
-                    <p>Tenant Justice MN is <strong>not yet operational</strong> and does not currently have contact information. Once we launch in 2026, contact details will be posted here.</p>
+                    <p>Tenant Justice MN is <strong>not yet operational</strong> and does not currently have contact information. Once we launch (expected end of 2027), contact details will be posted here.</p>
                     <p><strong>For immediate assistance, contact:</strong></p>
                     <ul>
                         <li>HOME Line: (612) 728-5767 (Metro) or (866) 866-3546 (Greater MN)</li>
@@ -8490,7 +8696,7 @@ Jane Smith
                 
                 <div class="info-box">
                     <h4>Q: What's the difference between this website and Tenant Justice MN?</h4>
-                    <p><strong>A:</strong> This website provides education and information. Tenant Justice MN (launching 2026) will be a nonprofit providing direct legal advocacy and representation. This site is educational only - we are not a law firm.</p>
+                    <p><strong>A:</strong> This website provides education and information. Tenant Justice MN (expected launch end of 2027) will be a nonprofit providing direct legal advocacy and representation. This site is educational only - we are not a law firm.</p>
                 </div>
                 
                 <div class="warning-box">
@@ -8740,7 +8946,7 @@ Jane Smith
 
                 <h3>Operated By</h3>
                 <p>This website is operated by <strong>Kurrasch Gaming Merch Store LLC</strong> as an educational project. We are not a law firm or nonprofit organization.</p>
-                <p><strong>Tenant Justice MN</strong> is a separate nonprofit organization in development, expected to launch in 2026, which will provide direct legal advocacy services.</p>
+                <p><strong>Tenant Justice MN</strong> is a separate nonprofit organization in development, expected to launch at the end of 2027, which will provide direct legal advocacy services.</p>
             </div>
         </div>
 
@@ -9441,19 +9647,23 @@ Jane Smith
     // Hide all pages
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => page.classList.remove('active'));
-    
+
     // Remove active from all nav buttons
     const navBtns = document.querySelectorAll('.nav-btn');
     navBtns.forEach(btn => btn.classList.remove('active'));
-    
+
     // Show selected page
     const selectedPage = document.getElementById(pageId);
     if (selectedPage) {
         selectedPage.classList.add('active');
     }
-    
-    // Highlight active nav button
-    event.target.classList.add('active');
+
+    // Highlight the matching nav button (works from nav, footer links and in-page links)
+    navBtns.forEach(btn => {
+        const oc = btn.getAttribute('onclick') || '';
+        if (oc.indexOf("showPage('" + pageId + "')") !== -1) btn.classList.add('active');
+    });
+    window.scrollTo(0, 0);
 }
     // Copy template to clipboard
 function toggleTemplate(num) {
@@ -9513,10 +9723,10 @@ function showNotification(message) {
     }, 3000);
 }
     
-    // Check if forms should be active (mid-2026)
+    // Check if forms should be active (expected launch: end of 2027). Change the date below when launch is confirmed.
     function areFormsActive() {
         const now = new Date();
-        const activationDate = new Date('2026-06-01');
+        const activationDate = new Date('2027-12-31');
         return now >= activationDate;
     }
     
@@ -9539,7 +9749,18 @@ function showNotification(message) {
         } else {
             form.style.display = 'none';
             message.style.display = 'block';
-            title.textContent = '⚠️ Form Not Available Yet';
+            title.textContent = '⚠️ Coming Soon: Expected End of 2027';
+            const ref = document.getElementById('overlayReferral');
+            if (ref) {
+                const referrals = {
+                    'Homelessness Prevention Help': '<strong>For homelessness prevention now:</strong> dial <a href="tel:211" style="color:#40c4ff;">211</a>, call HOME Line at <a href="tel:6127285767" style="color:#40c4ff;">(612) 728-5767</a>, or contact your county human services office and local Community Action agency.',
+                    'Emergency Food Request': '<strong>For food now:</strong> call the Minnesota Food HelpLine at <a href="tel:18887111151" style="color:#40c4ff;">1-888-711-1151</a> or find your nearest food shelf at <a href="https://www.hungersolutions.org/find-help/" target="_blank" rel="noopener" style="color:#40c4ff;">hungersolutions.org/find-help</a>.',
+                    'Disability Protection Request': '<strong>You are protected by law today.</strong> Contact the MN Dept. of Human Rights at <a href="tel:6515391100" style="color:#40c4ff;">(651) 539-1100</a>, HUD at <a href="tel:8006699777" style="color:#40c4ff;">1-800-669-9777</a>, or HOME Line at <a href="tel:6127285767" style="color:#40c4ff;">(612) 728-5767</a>.',
+                    'Landlord Misconduct Report': '<strong>To report misconduct now:</strong> contact the MN Attorney General at <a href="tel:6512963353" style="color:#40c4ff;">(651) 296-3353</a> or HOME Line at <a href="tel:6127285767" style="color:#40c4ff;">(612) 728-5767</a>.',
+                    'Crisis Help Request': '<strong>For urgent help now:</strong> dial <a href="tel:211" style="color:#40c4ff;">211</a> or call HOME Line at <a href="tel:6127285767" style="color:#40c4ff;">(612) 728-5767</a>. Call 911 in an emergency.'
+                };
+                ref.innerHTML = referrals[programType] || '';
+            }
         }
         
         overlay.classList.add('active');
@@ -9594,6 +9815,48 @@ function showNotification(message) {
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<button id="menuToggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰ Menu</button>
+<button id="aiFab" onclick="aiToggle()" aria-label="Chat with Ingrid">💬 Ask Ingrid</button>
+<div id="aiPanel" role="dialog" aria-label="Ask Ingrid, tenant rights helper">
+  <div id="aiHead"><div>Ingrid<small>AI helper for Minnesota tenants</small></div><button onclick="aiToggle()" aria-label="Close chat">×</button></div>
+  <div id="aiLog" aria-live="polite"></div>
+  <form id="aiForm" onsubmit="return aiSend(event)">
+    <input id="aiInput" type="text" maxlength="600" placeholder="Ask about your rights, uff da..." autocomplete="off">
+    <button id="aiSend" type="submit">Send</button>
+  </form>
+  <div id="aiNote">AI-generated general information, not legal advice. Powered by Gemini.</div>
+</div>
+<script>
+/* Ingrid chat. Set AI_ENDPOINT to your proxy URL (see gemini-proxy-worker.js). NEVER put the Gemini key in this file. */
+const AI_ENDPOINT = '';
+const aiHist = [];
+function aiToggle(){
+  const p=document.getElementById('aiPanel'); p.classList.toggle('open');
+  if(p.classList.contains('open') && !document.getElementById('aiLog').children.length)
+    aiAdd('bot',"Hey there! I'm Ingrid. Ask me anything about renting in Minnesota and I'll do my best. I'm an AI, not a lawyer, so for your own case, check with HOME Line at (612) 728-5767 too, you bet.");
+}
+function aiAdd(who,text,sources){
+  const log=document.getElementById('aiLog'); const d=document.createElement('div');
+  d.className='aiMsg '+who; d.textContent=text;
+  if(sources&&sources.length){const s=document.createElement('div');s.className='aiSrc';s.append('Sources: ');
+    sources.slice(0,4).forEach((x,i)=>{if(!/^https:\/\//.test(x.uri))return;const a=document.createElement('a');a.href=x.uri;a.target='_blank';a.rel='noopener';a.textContent=x.title||x.uri;s.append(a,i<sources.length-1?' · ':'')});d.append(s)}
+  log.append(d); log.scrollTop=log.scrollHeight; return d;
+}
+async function aiSend(e){
+  e.preventDefault(); const inp=document.getElementById('aiInput'); const t=inp.value.trim(); if(!t) return false;
+  inp.value=''; aiAdd('me',t);
+  if(!AI_ENDPOINT){aiAdd('bot',"I'm not connected yet. The site owner still needs to add the proxy address. In the meantime, HOME Line can help: (612) 728-5767.");return false}
+  aiHist.push({role:'user',text:t}); const wait=aiAdd('bot','Lemme check on that...');
+  try{
+    const r=await fetch(AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:aiHist.slice(-10)})});
+    const j=await r.json(); if(!r.ok) throw new Error(j.error||'error');
+    wait.remove(); aiAdd('bot',j.reply,j.sources); aiHist.push({role:'model',text:j.reply});
+  }catch(err){wait.remove();aiAdd('bot',"Oh, ope, something went sideways. Try again in a bit, or call HOME Line at (612) 728-5767.")}
+  return false;
+}
+/* close mobile menu after choosing a page */
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('nav .nav-btn'))document.body.classList.remove('menu-open')});
+</script>
 </body>
 </html>
-
